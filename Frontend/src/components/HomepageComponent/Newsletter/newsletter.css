@@ -1,0 +1,67 @@
+.newsletter{
+    background-color:#f3f5fa;
+    padding: 18px 0;
+    text-align: center;
+    justify-content: center;
+}
+
+.newsletter h1{
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.newsletter p{
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+
+.newsletter .search-bar-newsletter{
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    border-radius: 30px;
+    padding: 5px;
+    width: 40%;
+    font-size: 20px;
+    box-shadow: #2d2d2d 0 0 10px;
+    margin-left: 500px ;
+    margin-right: 500px ;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search-bar-newsletter input{
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    font-size: 16px;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    float: left;
+    border-radius: 20px;
+}
+
+.search-bar-newsletter input:focus{
+    outline: none;
+}
+
+.search-bar-newsletter button{
+    font-size: 18px;
+    padding: 10px;
+    width: 100px;
+    background-color: #015e75;
+    color: rgb(240, 239, 239);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.search-bar-newsletter button:hover{
+    background-color: #bd4970;
+    color: white;
+}

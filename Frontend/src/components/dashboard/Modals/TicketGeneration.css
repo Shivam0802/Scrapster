@@ -1,0 +1,119 @@
+.Background{
+    background-color: rgba(2, 2, 2, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Ticket-Generation-container{
+    background-color:rgb(255, 255, 255);
+    width: 40%;
+    height: 90%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Ticket-Generation-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.Ticket-Generation-title h3{
+    font-size: 40px;
+    font-weight: 500;
+    color:chocolate;
+    font-variant: small-caps;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Ticket-Generation-title hr{
+    width: 20%;
+    color: cadetblue;
+}
+
+.Ticket-Generation-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-top: 2px solid rgb(47, 46, 46);
+}
+
+.Ticket-Generation-form{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    width: 100%;
+    height: 100%;
+}
+
+.Ticket-Generation-form form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.Ticket-Generation-form-header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:10px;
+}
+
+.Ticket-Generation-form-header label{
+ 
+    color: #1f2121;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-right: 1rem;
+}
+
+.Ticket-Generation-form-header input{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    display: block;
+    border: 1px solid #2c2e2f;
+    width: 100%;
+}
+
+.Ticket-Generation-form-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 99%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.Ticket-Generation-form-group label{
+    color: #1f2121;
+    font-size: 19px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 10px;
+    align-items: center;
+}
+
+.Ticket-Generation-form-group input{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    display: block;
+    border: 1px solid #2c2e2f;
+    border-width: 1.2px;
+}

@@ -1,0 +1,113 @@
+.service{
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+    background-color: #f6f6f6;
+}
+
+@keyframes slide-up {
+    0% {
+        visibility: visible;
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+}
+
+.service-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.service-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.service-header hr{
+    width: 5%;
+    margin: 10px;
+    border: 2px solid #ad1641;
+    border-radius: 5px;
+}
+
+.service-header h1{
+    font-size: 40px;
+    margin: 10px;
+    text-align: center;
+}
+
+.service p{
+    font-size: 18px;
+    color: #3c3b3b;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.service-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.service-image h2{
+    margin: 10px;
+    text-align: center;
+    color: #3c3b3b;
+}
+
+.service-image h2:hover{
+    color:rgb(212, 164, 121);
+}
+
+.service-image p{
+    font-size: 18px;
+    color: #424141;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.service-image-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:rgb(233, 129, 118);
+    margin: 20px; 
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.service-image-middle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: cadetblue;
+    margin: 20px; 
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+
+}
+
+.service-image-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:mediumseagreen;
+    margin: 20px; 
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}

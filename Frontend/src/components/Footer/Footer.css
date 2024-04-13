@@ -1,0 +1,132 @@
+.footer{
+    background-color: #292b2c;
+    color: rgb(255, 253, 253);
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.footer-container{
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    width:45%;
+}
+
+.right{
+    display: flex;
+    flex-direction: row;
+    padding-right: 10px;
+    width:30%;
+    justify-content: space-around;
+}
+
+.center{
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    width: 25%;
+    justify-content: space-around;
+}
+
+
+.left-footer-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.right-footer-content{
+    width: 100%;
+}
+
+.left-footer-icons{ 
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.left-footer-icons a {
+    text-decoration: none;
+    font-size: 25px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: 0.5s;
+}
+
+
+.left-footer-icons a:hover {
+    transform: scale(1.3);
+}
+
+.facebook{
+    color: #37579c;
+}
+
+.twitter{
+    color: #00aced;
+}
+
+.linkedin{
+    color: #05557a;
+}
+
+.instagram{
+    color: #e4405f;
+}
+
+.right-footer-content h3{
+    font-size: 25px;
+    padding: 10px;
+    margin: 3px;
+}
+
+.right-footer-content p{
+    font-size: 15px;
+    padding: 10px;
+    margin: 1px;
+}
+
+.center-footer-content h3{
+    font-size: 25px;
+    padding: 10px;
+    margin: 3px;
+}
+
+.center-footer-content p{
+    font-size: 17px;
+    padding: 10px;
+    margin: 1px;
+}
+
+.left-footer-content h3{
+    font-size: 35px;
+    padding: 10px;
+    margin: 3px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.left-footer-content p{
+    font-size: 17px;
+    padding: 10px;
+    margin: 1px;
+}
+
+hr{
+    width: 95%;
+    border: 10px solid white;
+}

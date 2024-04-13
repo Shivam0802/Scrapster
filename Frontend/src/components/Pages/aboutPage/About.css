@@ -1,0 +1,325 @@
+.about-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #fdfcfc;
+    overflow: hidden;
+}
+
+.page-content{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    border-radius: 30px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.page-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    margin: 30px;
+    margin-top:50px;
+    margin-bottom: 50px;
+}
+
+.page-header h1{
+    font-size: 60px;
+    margin: 10px;
+    text-align: center;
+}
+
+.page-header  hr{
+    width: 15%;
+    margin: 10px;
+    border: 2px solid #12a3d8;
+    border-radius: 5px;
+}
+
+.about-awareness-right hr{
+    width: 50%;
+    margin: 10px;
+    border: 2px solid #c90d59;
+    border-radius: 5px;
+}
+
+.about-vision-left  hr{
+    width: 50%;
+    margin: 10px;
+    border: 2px solid #c90d59;
+    border-radius: 5px;
+}
+
+.about-mission-right hr{
+    width: 50%;
+    margin: 10px;
+    border: 2px solid #c90d59;
+    border-radius: 5px;
+}
+
+.about-company-left hr{
+    width: 50%;
+    margin: 10px;
+    border: 2px solid #c90d59;
+    border-radius: 5px;
+}
+
+.about-image{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.about-company{
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: 80%;
+    background-color: #fcfafa;
+    display: flex;
+    flex-direction: row;
+}
+
+.about-company-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    padding: 20px;
+    margin: 20px;
+}
+
+.about-company-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.about-company-right img{
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+
+.about-container h2{
+    font-size: 50px;
+    margin: 10px;
+    text-align: center;
+    color:darkslategray;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.about-container p{
+    font-size: 20px;
+    margin: 10px;
+    text-align: start;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.about-mission{
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: 80%;
+    background-color: #fcfafa;
+    display: flex;
+    flex-direction: row;
+}
+
+.about-mission-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.about-mission-left img{
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+
+.about-mission-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    padding: 20px;
+    margin: 20px;
+}
+
+.about-vision{
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: 80%;
+    background-color: #fcfafa;
+    display: flex;
+    flex-direction: row;
+}
+
+.about-vision-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 55%;
+    height: auto;
+    padding: 20px;
+    margin: 20px;
+}
+
+.about-vision-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+}
+
+.about-vision-right img{
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+
+.about-awareness{
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: 80%;
+    background-color: #fcfafa;
+    display: flex;
+    flex-direction: row;
+}
+
+.about-awareness-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.about-awareness-left img{
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+
+.about-awareness-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    padding: 20px;
+    margin: 20px;
+}
+
+.about_head_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 90%;
+    margin: 20px;
+}
+
+.about__image-left{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 45%;
+    padding: 30px;
+}
+
+.about__image-right{
+    display: flex;
+    justify-content:stretch;
+    align-items: center;
+    width: 50%;
+}
+
+.about__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.about__content h1{
+    font-size:70px;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 20px;
+    font-variant: small-caps;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.about__content h3{
+    font-size: 25px;
+    font-weight: 500;
+    color: #292929;
+    margin-bottom: 20px;
+    font-variant: small-caps;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.about__content p{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.about__content hr{
+    width: 50%;
+    margin: 10px;
+    border: 2px solid #12a3d8;
+    border-radius: 5px;
+}
+
+.about__image{
+    width:100%;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.about__image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.slide{
+    position: relative;
+    left: 60px;
+    width:90%;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: all .5s ease;
+}
+
+.current{
+    opacity: 1;
+    transform: translateX(0);
+    transition: all .5s ease;
+    text-align: end;
+}

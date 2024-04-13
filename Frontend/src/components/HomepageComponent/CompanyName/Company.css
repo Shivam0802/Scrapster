@@ -1,0 +1,55 @@
+.Company{
+    background-color:#f6f6f6;
+    padding: 10px;
+}
+
+.Company-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.Company-header h1{
+    font-size: 40px;
+    margin: 10px;
+    text-align: center;
+}
+
+.Company-header hr{
+    width: 5%;
+    margin: 10px;
+    border: 2px solid #ad1641;
+    border-radius: 5px;
+}
+
+.Company-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Company p{
+    font-size: 18px;
+    color: #3c3b3b;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.client-logo{
+    width: 95%;
+    height: 90%;
+}
+
+.client-logo img{
+    width: 95%;
+    height: 90%;
+    transition: 0.3s;
+    filter: rotate(90deg);
+}
+
+.client-logo img:hover{
+    filter: none;
+    opacity: 2;
+    transform: scale(1.32);
+}

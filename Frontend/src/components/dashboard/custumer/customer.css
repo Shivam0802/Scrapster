@@ -1,0 +1,316 @@
+.Customer-Dashboard {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(224, 224, 224);
+  background-image: url(/images/wave.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;;
+}
+
+.Customer-Background {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Customer-Header {
+  display: flex;
+  flex-direction: column;
+  margin-left: 70px;
+  margin-right: 30px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 3px;
+  background-color: white;
+  border-radius: 15px;
+  width:20%;
+}
+
+.Customer-Title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(234, 159, 146);
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 5px;
+  border-radius: 15px 15px 0 0;
+  /* font-size: medium;
+  font-variant: small-caps;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; */
+}
+
+
+.Customer-Title h3 {
+  font-size: 20px;
+  font-weight: 400;
+  font-variant: small-caps;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Customer-Profile-wrap{
+  background-color: rgb(234, 159, 146);
+  border-bottom-left-radius: 50% 40%;
+  border-bottom-right-radius: 50% 40%;
+}
+
+.Profile-Picture {
+  width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 20px;
+  overflow: hidden;
+  border: 1px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.Profile-Picture img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.Profile-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .Profile-left p{
+  font-size: 20px;
+  font-weight: 400;
+  font-variant: small-caps;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+} */
+
+.Profile-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 90px;
+  margin-bottom: 20px;
+  justify-content: space-evenly;
+}
+
+.btn-Edit{
+  background-color:rgb(196, 128, 148);
+  color: rgb(255, 253, 253);
+  border: none;
+  width:40%;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 19px;
+  font-weight: 400;
+  font-variant: small-caps;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn-Edit:hover{
+  background-color:rgb(78, 129, 163);
+  color: white;
+  border: none;
+}
+
+.btn-Delete{
+  background-color:rgb(85, 164, 149);
+  color: white;
+  border: none;
+  width:40%;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 19px;
+  font-weight: 400;
+  font-variant: small-caps;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn-Delete:hover{
+  background-color:rgb(78, 129, 163);
+  color: white;
+  border: none;
+}
+
+.Profile-Content{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  margin-top: 40px ;
+  margin-bottom: 30px;
+  margin-right: 50px;
+  width: 100%;
+  border: none;
+  border-radius: 30px;
+  background-color: rgb(253, 253, 253);
+}
+
+.Profile-Container{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  margin: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 30px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 10px;
+  padding-right: 50px;
+  background-color: rgb(235, 231, 230);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-image: url(/images/wave2.png);
+  background-position:top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.Profile-center{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+  width:68%;
+}
+
+.Profile-Ticket{
+  background-color:rgb(246, 246, 245);
+  flex-direction: column;
+  width:100%;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+.Profile-Ticket h3{
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  font-variant: small-caps;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Profile-Ticket p{
+  font-size: 16px;
+  font-weight: 200;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Profile-Ticket hr{
+  width: 100%;
+  margin-top: 10px;
+  border: 1.5px solid rgb(9, 142, 172);
+  margin-bottom: 10px;
+}
+
+.Ticket-number{
+  border-radius: 20px;
+  background-color: rgb(251, 250, 250);
+  padding: 10px 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.button-Ticket{
+  text-align: right;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: space-evenly;
+}
+
+.btn-Ticket{
+  background-color:rgb(18, 112, 152);
+  color: rgb(255, 253, 253);
+  border: none;
+  width:40%;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 19px;
+  font-weight: 400;
+  font-variant: small-caps;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn-Ticket:hover{
+  background-color:rgb(163, 78, 115);
+  color: white;
+  border: none;
+}
+
+.Profile-right{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+  width:25%;
+}
+
+.notification{
+  background-color:rgb(253, 253, 253);
+  flex-direction: column;
+  width:100%;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+.notification h3{
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  font-variant: small-caps;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.notification p{
+  font-size: 14px;
+  font-weight: 200;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.notification hr{
+  width: 100%;
+  margin-top: 10px;
+  border: 1.5px solid rgb(9, 142, 172);
+  margin-bottom: 10px;
+}
+
+.notification-number{
+  border-radius: 20px;
+  background-color: rgb(251, 250, 250);
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.notification-content{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(251, 250, 250);
+  border: none;
+  margin-bottom: 10px;
+  border-bottom: 1.5px solid rgb(32, 33, 33);
+}
+
+.btn-View{
+  color: rgb(9, 151, 92);
+  background-color: rgb(245, 245, 245);
+  border: none;
+  align-items: end;
+  text-align: right;
+  width:100%;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 400;
+  font-variant: small-caps;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

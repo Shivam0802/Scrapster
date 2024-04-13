@@ -1,0 +1,202 @@
+.contact{
+    display: flex;
+    flex-direction: column;
+    background-color: #fafafa;
+    padding: 60px;
+}
+
+.contact-p{
+    display:flex;
+    flex-direction: column;
+}
+
+.contact-p p{
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 10px;
+    text-align: center;
+}
+
+.contact-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-header h1{
+    font-size: 40px;
+    margin:10px;
+    text-align: center;
+}
+
+.contact-header hr{
+    width: 5%;
+    margin: 10px;
+    border: 2px solid #ad1641;
+    border-radius: 5px;
+}
+
+
+.contact p{
+    font-size: 18px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contact-left{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    width: 40%;
+}
+
+.contact-left-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 8px;
+}
+
+.contact-left-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 8px;
+    width: 50%;
+}
+
+.contact-info-item{
+    margin: 10px;
+    border-radius: 5px;
+    padding: 28px;
+    background-color: #e0e2e2c4;
+    box-shadow: 0 0 10px rgba(1, 1, 1, 0.2);
+    width: 220px;
+    height: 150px;
+}
+
+.contact-info-item h3{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 400;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.contact-info-item p{
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.contact-right{
+    display: flex;
+    flex-direction: column;
+    margin: 35px;
+    width: 60%;
+    border-radius: 3px;
+    padding: 20px;
+    background-color: #e0e2e2c4;
+    box-shadow: 0 0 10px rgba(1, 1, 1, 0.2);
+}
+
+.contact-form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-group label{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.contact-form-group input{
+    font-size: 16px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #d2e0df;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.contact-form-group textarea{
+    font-size: 16px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #d2e0df;
+    resize: none;
+    height: 90px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.contact-form-flex{
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-form-group-flex{
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-group-flex label{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.contact-form-group-flex input{
+    width: 400px;
+    font-size: 16px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #d2e0df;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.contact-form-group-flex input:focus{
+    outline: none;
+}
+
+.contact-form-group input:focus{
+    outline: none;
+}
+
+.contact-form-group-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Contact-btn{
+    font-size: 20px;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #d2e0df;
+    background-color: #07596ade;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.Contact-btn:hover{
+    background-color: #158273;
+    cursor: pointer;
+}
