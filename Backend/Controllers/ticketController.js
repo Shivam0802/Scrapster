@@ -51,12 +51,13 @@ const getTicketByCollectionAgentID = asyncHandler(async (req, res) => {
 // public
 const createTicket = asyncHandler(async (req, res) => {
     let customer = await Customer.findById(customer_ID);
+    console.log(customer);
     let item = await ItemDetails.findById(req.body._id);
     let customerIdSub = JSON.stringify(customer_ID).substring(1, 7);
     let ticketIdSub = cryptoRandomString({ length: 4 });
     let ticketId = customerIdSub + "_" + ticketIdSub;
 
-    console.log(ticketId);
+    //console.log(ticketId);
     let createdTicket = await Ticket.create({
         ticketNo: ticketId,
         customerID: customer_ID,
@@ -68,7 +69,7 @@ const createTicket = asyncHandler(async (req, res) => {
         state: customer.state,
         pincode: customer.pincode,
         itemID: req.body._id,
-        price: item.price,
+        //price: item.price,
         collectionAgentID: null,
         collectionAgentName: null,
         collectionAgentcontact: null,

@@ -8,7 +8,7 @@ function Navbar() {
     const [isLoggedIn,setLoggedin] = useState(localStorage.getItem("token") != null ? true : false);
 
     const handleLogout = () => {
-      localStorage.removeItem('accessToken');
+      localStorage.removeItem('token');
       setLoggedin(false);
     }
 
