@@ -130,6 +130,11 @@ function Login() {
             </p>
             <hr />
             <div className="form-wrapper">
+              <label htmlFor='role'>Role</label>
+              <select name="role" className='form-control'>
+                <option value="customer" className='form-option'>Customer</option>
+                <option value="admin" className='form-option'>Collector</option>
+              </select>
               <label htmlFor='username'>Email</label>
               <input type="text" name="username"  placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} className='form-control' required />
               <br />
