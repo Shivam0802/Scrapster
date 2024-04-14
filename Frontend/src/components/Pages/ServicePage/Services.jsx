@@ -11,6 +11,14 @@ function Services() {
 
     const [activeImage, setActiveImage] = useState(0);
 
+    function handleService() {
+        if (localStorage.getItem('token') !== null) {
+            window.location.href = '/customer';
+        } else {
+            window.location.href = '/login';
+        }
+    }
+
     const imageData = [
         {
             id: 1,
@@ -103,7 +111,7 @@ function Services() {
                                 Lets schedule your transportation services for the collection and disposal of recyclable materials.
                             </p>
                             <br />
-                            <Link to="/customer"><buttun className="Transport-btn">Need Service ?</buttun></Link>
+                            <Link to="/customer"><buttun className="Transport-btn" onClick={handleService}>Need Service ?</buttun></Link>
                         </div>
                     </div>
                     <div className="ServiceP__dots-transport-right">
@@ -123,7 +131,7 @@ function Services() {
                             Our collection services are designed to help you recycle your waste in a safe and efficient manner.
                         </p>
                         <br />
-                        <Link to="/customer"><buttun className="Transport-btn">Need Service ?</buttun></Link>
+                        <Link to="/customer"><buttun className="Transport-btn" onClick={handleService}>Need Service ?</buttun></Link>
                     </div>
                     <div className="ServiceP__dots-Collection-left">
                         <img src="/images/image23.jpeg" alt="Collection" />
@@ -134,7 +142,7 @@ function Services() {
                         <h3>Disposal</h3>
                         <hr />
                         <p>
-                            Dispose of your electronic waste responsibly with Scrapster. 
+                            Dispose of your electronic waste responsibly with Scrapster.
                             We collect, recycle, and refurbish electronic items to reduce environmental impact and promote sustainability.
                             <br />
                             <br />
@@ -142,7 +150,7 @@ function Services() {
                             We provide disposal services to help you get rid of your waste in an environmentally friendly manner.
                         </p>
                         <br />
-                        <Link to="/customer"><buttun className="Transport-btn">Need Service ?</buttun></Link>
+                        <Link to="/customer"><buttun className="Transport-btn" onClick={handleService}>Need Service ?</buttun></Link>
                     </div>
                     <div className="ServiceP__dots-Disposal-left">
                         <img src="/images/image22.jpeg" alt="Disposal" />
