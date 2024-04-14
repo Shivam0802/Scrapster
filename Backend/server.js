@@ -1,41 +1,33 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+import express from 'express';
+import dbConnect from './Config/dbConnect.js';
+import multer from 'multer';
+import customerRoute from './Routes/customerRoutes.js';
+import collectionAgentRoute from './Routes/collectionAgentRoutes.js';
+import addRemoveItemRoute from './Routes/addRemoveItemsRoutes.js';
+import ticketRoute from './Routes/ticketsRoutes.js';
+import adminRoute from './Routes/adminRoutes.js'
+import cors from 'cors';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
+//app.use(multer({dest: './uploads/'}));
 
-mongoose.connect('mongodb://Admin:Admin@localhost:27017/Scrapster?tls=true&directConnection=true');
+dbConnect();
 
-const userSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    password: String
-});
-
-const User = mongoose.model('User', userSchema);
-
-app.post('/api/users', (req, res) => {
-    const user = new User({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password
-    });
-    user.save(); 
-});
+app.use('/customer', customerRoute);
+app.use('/collectionAgent', collectionAgentRoute);
+app.use('/addRemoveItem', addRemoveItemRoute);
+app.use('/ticket', ticketRoute);
+app.use('/admin', adminRoute)
 
 app.get('/', (req, res) => {
     res.send('Server is ready');
 });
 
-
-app.listen(5000, () => {
-    console.log('Server started at port number 5000..');
+app.listen(3000, () => {
+    console.log('Server started at port number 3000..');
 });
-
-
