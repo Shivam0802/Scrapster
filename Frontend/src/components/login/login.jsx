@@ -32,7 +32,6 @@ conn.setRequestHeader("Content-Type", "application/json");
 conn.send(JSON.stringify(formData));
 conn.onreadystatechange = function() {
   if (this.status === 200) {
-    debugger;
     //let data = JSON.parse(this.responseText);
     let data = this.responseText;
     console.log(data);

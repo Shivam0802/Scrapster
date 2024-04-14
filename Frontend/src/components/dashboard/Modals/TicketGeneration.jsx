@@ -15,6 +15,7 @@ function TicketGeneration() {
     email: '',
     phone: '',
     comments: '',
+    devices: [],
     images: []
   });
 
@@ -31,7 +32,12 @@ function TicketGeneration() {
         } else { 
             set_selected_products( 
                 [...selected_products, option]); 
-        } 
+        }
+        
+        setFormData({
+          ...formData,
+          ["devices"]: selected_products
+        });
     }; 
 
   const handleChange = (e) => { 
@@ -83,13 +89,13 @@ function TicketGeneration() {
           <Col>
           <Form.Group className="mb-3" controlId="formGroupEmail">
             <Form.Label>Name</Form.Label>
-            <Form.Control type="text" name="name" onChange={handleChange} placeholder="First name" />
+            <Form.Control type="text" name="name" onChange={handleChange} placeholder="Name" />
           </Form.Group>
           </Col>
           <Col>
           <Form.Group className="mb-3" controlId="formGroupEmail">
             <Form.Label>Phone</Form.Label>
-            <Form.Control type="text" name="phone" onChange={handleChange} placeholder="Last name" />
+            <Form.Control type="text" name="phone" onChange={handleChange} placeholder="Phone" />
           </Form.Group>
             </Col>
           </Row>
@@ -150,7 +156,7 @@ function TicketGeneration() {
       
               <Modal.Footer>
                 <Button variant="secondary">Cancel</Button>
-                <Button variant="primary">Submit</Button>
+                <Button variant="primary" onClick={handleSubmit}>Submit</Button>
               </Modal.Footer>
             </Modal.Dialog>
     </>
