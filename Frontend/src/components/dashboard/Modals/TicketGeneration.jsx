@@ -79,7 +79,7 @@ function TicketGeneration() {
   return (
     <>
           <Modal.Dialog>
-              <Modal.Header closeButton>
+              <Modal.Header>
                 <Modal.Title>Create Ticket</Modal.Title>
               </Modal.Header>
       
