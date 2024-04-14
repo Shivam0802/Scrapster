@@ -16,13 +16,12 @@ const loginCollectionAgent = asyncHandler(async (req, res) => {
             collectionAgent_ID = collectionAgent._id;
             let accessToken = jwt.sign({
                 user: {
-                    firstName: collectionAgent.fName,
-                    lastName: collectionAgent.lName,
+                    firstName: collectionAgent.firstName,
+                    lastName: collectionAgent.lastName,
                     email: collectionAgent.email,
                     houseNo: collectionAgent.address,
-                    //street: collectionAgent.street,
                     city: collectionAgent.city,
-                    //state: collectionAgent.state,
+                    state: collectionAgent.state,
                     pincode: collectionAgent.pincode,
                     contact: collectionAgent.mobile
                 }
@@ -44,13 +43,12 @@ const registerCollectionAgent = asyncHandler(async (req, res) => {
     }
     let hashedPass = await bcrypt.hash(req.body.password, 10);
     let collectionAgent = await CollectionAgent.create({
-        firstName: req.body.fName,
-        lastName: req.body.lName,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         email: req.body.email,
         houseNo: req.body.address,
-        // street: req.body.street,
         city: req.body.city,
-        // state: req.body.state,
+        state: req.body.state,
         pincode: req.body.pincode,
         contact: req.body.mobile,
         password: hashedPass
@@ -58,13 +56,12 @@ const registerCollectionAgent = asyncHandler(async (req, res) => {
 
     if (collectionAgent) {
         res.status(200).json({
-            firstName: collectionAgent.fName,
-            lastName: collectionAgent.lName,
+            firstName: collectionAgent.firstName,
+            lastName: collectionAgent.lastName,
             email: collectionAgent.email,
             houseNo: collectionAgent.address,
-            // street: collectionAgent.street,
             city: collectionAgent.city,
-            // state: collectionAgent.state,
+            state: collectionAgent.state,
             pincode: collectionAgent.pincode,
             contact: collectionAgent.mobile,
             password: collectionAgent.password
@@ -82,13 +79,12 @@ const getCollectionAgent = asyncHandler(async (req, res) => {
     let collectionAgent = await CollectionAgent.findById(collectionAgent_ID);
     if (collectionAgent) {
         res.status(200).json({
-            firstName: collectionAgent.fName,
-            lastName: collectionAgent.lName,
+            firstName: collectionAgent.firstName,
+            lastName: collectionAgent.lastName,
             email: collectionAgent.email,
             houseNo: collectionAgent.address,
-            // street: collectionAgent.street,
             city: collectionAgent.city,
-            // state: collectionAgent.state,
+            state: collectionAgent.state,
             pincode: collectionAgent.pincode,
             contact: collectionAgent.mobile
         });

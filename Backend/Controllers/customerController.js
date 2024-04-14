@@ -18,13 +18,12 @@ const loginCustomer = asyncHandler(async (req, res) => {
             customer_ID = customer._id;
             let accesToken = jwt.sign({
                 user: {
-                    firstName: customer.fName,
-                    lastName: customer.lName,
+                    firstName: customer.firstName,
+                    lastName: customer.lastName,
                     email: customer.email,
                     houseNo: customer.address,
-                    //street: customer.street,
                     city: customer.city,
-                    //state: customer.state,
+                    state: customer.state,
                     pincode: customer.pincode,
                     contact: customer.mobile
                 }
@@ -52,13 +51,12 @@ const registerCustomer = asyncHandler(async (req, res) => {
     }
     let hashedPass = await bcrypt.hash(req.body.password, 10);
     let customer = await Customer.create({
-        firstName: req.body.fName,
-        lastName: req.body.lName,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         email: req.body.email,
         houseNo: req.body.address,
-        //street: req.body.street,
         city: req.body.city,
-        //state: req.body.state,
+        state: req.body.state,
         pincode: req.body.pincode,
         contact: req.body.mobile,
         password: hashedPass
@@ -67,13 +65,12 @@ const registerCustomer = asyncHandler(async (req, res) => {
     if (customer) {
         res.status(200).json({
             _id: customer._id,
-            firstName: customer.fName,
-            lastName: customer.lName,
+            firstName: customer.firstName,
+            lastName: customer.lastName,
             email: customer.email,
             houseNo: customer.address,
-            //street: customer.street,
             city: customer.city,
-            //state: customer.state,
+            state: customer.state,
             pincode: customer.pincode,
             contact: customer.mobile,
             password: customer.password
@@ -92,13 +89,12 @@ let getCustomer = asyncHandler(async (req, res) => {
     let customer = await Customer.findById(customer_ID);
     if (customer) {
         res.status(200).json({
-            firstName: customer.fName,
-            lastName: customer.lName,
+            firstName: customer.firstName,
+            lastName: customer.lastName,
             email: customer.email,
             houseNo: customer.address,
-            //street: customer.street,
             city: customer.city,
-            //state: customer.state,
+            state: customer.state,
             pincode: customer.pincode,
             contact: customer.mobile
         });
@@ -125,13 +121,12 @@ const getAllCustomers = asyncHandler(async (req, res) => {
 
 const updateCustomer = asyncHandler(async (req, res) => {
     let updatedCustomer = await Customer.findByIdAndUpdate(customer_ID, {
-        firstName: req.body.fName,
-        lastName: req.body.lName,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         email: req.body.email,
         houseNo: req.body.address,
-        // street: req.body.street,
         city: req.body.city,
-        // state: req.body.state,
+        state: req.body.state,
         pincode: req.body.pincode,
         contact: req.body.mobile
     }, { new: true });
