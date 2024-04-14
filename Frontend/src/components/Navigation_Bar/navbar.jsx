@@ -1,9 +1,17 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {  Link } from 'react-router-dom';
 //import Login from '../login/login';
 import reactLogo from '../assets/logo.svg';
 import './navbar.css';
 function Navbar() {
+
+    const [isLoggedIn,setLoggedin] = useState(localStorage.getItem("token") != null ? true : false);
+
+    const handleLogout = () => {
+      localStorage.removeItem('accessToken');
+      setLoggedin(false);
+    }
+
     return (
             <div className='navbar'>
                 <img className='logo' src={reactLogo} alt="React Logo" />
@@ -28,7 +36,7 @@ function Navbar() {
                     <button>Search</button>
                 </div>
                 <div className='login-btn'>
-                    <Link to='/login'><button>Login</button></Link>
+                    {isLoggedIn ? <button onClick={handleLogout}>Logout</button> : <Link to='/login'><button>Login</button></Link>}
                </div>
             </div>
     );
