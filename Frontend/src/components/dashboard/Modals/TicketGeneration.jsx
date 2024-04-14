@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useState } from "react";
+import './TicketGeneration.css';
 
 function TicketGeneration() {
 
@@ -66,8 +67,7 @@ function TicketGeneration() {
             console.log(this.status);
           if (this.status === 200) {
             console.log(this.responseText);
-            // toast.remove()
-            // toast.success("Registered Successfully");
+            window.location.href = "/customer";
           }
           else{
             // toast.error("Error");
@@ -76,11 +76,13 @@ function TicketGeneration() {
 
   };
 
+
   return (
-    <>
-   "
+    <> 
+    <div className="Background">
+     <div className="ticket-container">
           <Modal.Dialog>
-              <Modal.Header closeButton>
+              <Modal.Header>
                 <Modal.Title>Create Ticket</Modal.Title>
               </Modal.Header>
       
@@ -160,6 +162,8 @@ function TicketGeneration() {
                 <Button variant="primary" onClick={handleSubmit}>Submit</Button>
               </Modal.Footer>
             </Modal.Dialog>
+            </div>
+            </div>
     </>
   );
 }

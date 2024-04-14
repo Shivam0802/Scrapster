@@ -8,8 +8,8 @@ import { toast } from 'react-hot-toast';
 function Signup() {
 
     const [formData, setFormData] = useState({
-        fname: '',
-        lname: '',
+        firstName: '',
+        lastName: '',
         email: '',
         mobile: '',
         password: '',
@@ -123,10 +123,10 @@ function Signup() {
                             <option value="admin" className='form-option'>Collector</option>
                         </select>
                         </div>
-                        <label htmlFor='fname,lname'>Name</label>
+                        <label htmlFor='firstName,lastName'>Name</label>
                         <div className="form-group">
-                            <input type="text" name="fname" value={formData.fname ?? ""} onChange={handleChange} placeholder='First Name' className='form-control' />
-                            <input type="text" name="lname" value={formData.lname ?? ""} onChange={handleChange} placeholder='Last Name' className='form-control' />
+                            <input type="text" name="firstName" value={formData.firstName ?? ""} onChange={handleChange} placeholder='First Name' className='form-control' />
+                            <input type="text" name="lastName" value={formData.lastName ?? ""} onChange={handleChange} placeholder='Last Name' className='form-control' />
                         </div>
                         <label htmlFor='email'>Email</label>
                         <div className="form-wrapper">

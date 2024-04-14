@@ -5,8 +5,7 @@ const ticketGenerationSchema = new mongoose.Schema({
       
     },
     customerID: {
-        type: Schema.Types.ObjectId,
-        ref: 'CustomerModel'
+        type: String
 
     },
     customerName: {
@@ -17,7 +16,7 @@ const ticketGenerationSchema = new mongoose.Schema({
         type: Number,
     
     },
-    houseNo: {
+    address: {
         type: String,
       
     },

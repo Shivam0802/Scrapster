@@ -63,7 +63,7 @@ const createTicket = asyncHandler(async (req, res) => {
         customerID: customer_ID,
         customerName: (customer.firstName + " " + customer.lastName),
         customercontact: customer.contact,
-        houseNo: customer.houseNo,
+        address: customer.address,
         street: customer.street,
         city: customer.city,
         state: customer.state,

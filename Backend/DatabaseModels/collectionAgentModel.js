@@ -12,7 +12,7 @@ const collectionAgentSchema = new mongoose.Schema({
         type: String,
 
     },
-    houseNo: {
+    address: {
         type: String,
 
     },

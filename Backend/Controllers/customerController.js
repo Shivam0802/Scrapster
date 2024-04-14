@@ -14,14 +14,14 @@ const loginCustomer = asyncHandler(async (req, res) => {
     let customer = await Customer.findOne({ "email": email });
     if (customer) {
         console.log("cus is present");
-        if (bcrypt.compare(password, customer.password)) {
+        if (await bcrypt.compare(password, customer.password)) {
             customer_ID = customer._id;
             let accesToken = jwt.sign({
                 user: {
                     firstName: customer.firstName,
                     lastName: customer.lastName,
                     email: customer.email,
-                    houseNo: customer.address,
+                    address: customer.address,
                     city: customer.city,
                     state: customer.state,
                     pincode: customer.pincode,
@@ -54,7 +54,7 @@ const registerCustomer = asyncHandler(async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        houseNo: req.body.address,
+        address: req.body.address,
         city: req.body.city,
         state: req.body.state,
         pincode: req.body.pincode,
@@ -68,7 +68,7 @@ const registerCustomer = asyncHandler(async (req, res) => {
             firstName: customer.firstName,
             lastName: customer.lastName,
             email: customer.email,
-            houseNo: customer.address,
+            address: customer.address,
             city: customer.city,
             state: customer.state,
             pincode: customer.pincode,
@@ -92,7 +92,7 @@ let getCustomer = asyncHandler(async (req, res) => {
             firstName: customer.firstName,
             lastName: customer.lastName,
             email: customer.email,
-            houseNo: customer.address,
+            address: customer.address,
             city: customer.city,
             state: customer.state,
             pincode: customer.pincode,
@@ -124,7 +124,7 @@ const updateCustomer = asyncHandler(async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        houseNo: req.body.address,
+        address: req.body.address,
         city: req.body.city,
         state: req.body.state,
         pincode: req.body.pincode,
