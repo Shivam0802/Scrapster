@@ -156,11 +156,11 @@ function Signup() {
                         </div>
                         <br />
                         <div className="form-check">
-                            <input type="checkbox" name="terms" className='form-control' checked />
+                            <input type="checkbox" name="terms" checked />
                             <label htmlFor="terms">I agree to the <a>Terms and Conditions</a></label>
                         </div>
                         <div className="form-check">
-                            <input type="checkbox" name="privacy" className='form-control' checked />
+                            <input type="checkbox" name="privacy"  checked />
                             <label htmlFor="privacy">I agree to the <a>Privacy Policy</a></label>
                         </div>
                         <br />

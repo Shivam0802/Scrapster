@@ -78,6 +78,7 @@ function TicketGeneration() {
 
   return (
     <>
+   "
           <Modal.Dialog>
               <Modal.Header closeButton>
                 <Modal.Title>Create Ticket</Modal.Title>

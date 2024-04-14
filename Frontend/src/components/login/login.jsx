@@ -114,9 +114,9 @@ conn.onreadystatechange = function() {
                 <option value="customer" className='form-option'>Customer</option>
                 <option value="admin" className='form-option'>Collector</option>
               </select>
+    
               <label htmlFor='username'>Email</label>
               <input type="text" name="email"  placeholder='Email' value={formData.email} onChange={handleChange} className='form-control' required />
-              <br />
               <label htmlFor='password'>Password</label>
               <input type="password" name="password"  placeholder='Password' value={formData.password} onChange={handleChange} className='form-control' required/>
               <br />
