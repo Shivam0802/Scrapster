@@ -1,4 +1,6 @@
 import React from "react";
+import Form from 'react-bootstrap/Form';
+import Dropdown from 'react-bootstrap/Dropdown';
 import { useState } from "react";
 
 function TicketGeneration() {
@@ -10,6 +12,21 @@ function TicketGeneration() {
     comments: '',
     images: []
   });
+
+  const [selected_products, set_selected_products] =  
+        useState([]); 
+    const products =  
+        ['TV','AC','Fridge']; 
+    const toggleLang = (option) => { 
+        if (selected_products.includes(option)) { 
+            set_selected_products( 
+                selected_products.filter((item) =>  
+                    item !== option)); 
+        } else { 
+            set_selected_products( 
+                [...selected_products, option]); 
+        } 
+    }; 
 
   const handleChange = (e) => { 
     const { name, value } = e.target;
@@ -62,6 +79,26 @@ function TicketGeneration() {
         <br />
         <label htmlFor="image">Images</label>
         <input type="file" name="images" onChange={handleChange} id="images" multiple />
+        <br />
+        <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Dropdown> 
+                <Dropdown.Toggle id="dropdown-basic"> 
+                    Select Devices 
+                </Dropdown.Toggle> 
+                <Dropdown.Menu> 
+                    {products.map((option, index) => ( 
+                        <Dropdown.Item 
+                            key={index} 
+                            onClick={() => toggleLang(option)} 
+                            active={ 
+                                selected_products.includes(option)} 
+                        > 
+                            {option} 
+                        </Dropdown.Item> 
+                    ))} 
+                </Dropdown.Menu> 
+            </Dropdown> 
+            </Form.Group>
         <br />
         <label htmlFor="message">Comments</label>
         <textarea id="comments" name="comments" onChange={handleChange} value={formData.comments} required />
