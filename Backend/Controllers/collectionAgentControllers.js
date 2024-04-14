@@ -12,7 +12,7 @@ const loginCollectionAgent = asyncHandler(async (req, res) => {
     let { email, password } = req.body;
     let collectionAgent = await CollectionAgent.findOne({ email });
     if (collectionAgent) {
-        if (await bcrypt.compare(password, collectionAgent.password)) {
+        if (bcrypt.compare(password, collectionAgent.password)) {
             collectionAgent_ID = collectionAgent._id;
             let accessToken = jwt.sign({
                 user: {
