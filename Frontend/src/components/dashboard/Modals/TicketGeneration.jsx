@@ -1,5 +1,10 @@
 import React from "react";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';  
+import Col from 'react-bootstrap/Col';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useState } from "react";
 
@@ -18,6 +23,7 @@ function TicketGeneration() {
     const products =  
         ['TV','AC','Fridge']; 
     const toggleLang = (option) => { 
+      console.log(option);
         if (selected_products.includes(option)) { 
             set_selected_products( 
                 selected_products.filter((item) =>  
@@ -65,22 +71,39 @@ function TicketGeneration() {
   };
 
   return (
-    <div>
-      <h1>Ticket Generation</h1>
-      <form>
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name" name="name" onChange={handleChange} value={formData.name} required />
-        <br />
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" onChange={handleChange} value={formData.email} required />
-        <br />
-        <label htmlFor="phone">Phone</label>
-        <input type="mobile" id="phone" name="phone" onChange={handleChange} value={formData.phone} required />
-        <br />
-        <label htmlFor="image">Images</label>
-        <input type="file" name="images" onChange={handleChange} id="images" multiple />
-        <br />
-        <Form.Group className="mb-3" controlId="formGroupEmail">
+    <>
+          <Modal.Dialog>
+              <Modal.Header closeButton>
+                <Modal.Title>Create Ticket</Modal.Title>
+              </Modal.Header>
+      
+              <Modal.Body>
+              <Container>
+          <Row>
+          <Col>
+          <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label>Name</Form.Label>
+            <Form.Control type="text" name="name" onChange={handleChange} placeholder="First name" />
+          </Form.Group>
+          </Col>
+          <Col>
+          <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label>Phone</Form.Label>
+            <Form.Control type="text" name="phone" onChange={handleChange} placeholder="Last name" />
+          </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+            <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control type="email" name="email" onChange={handleChange} placeholder="Email" />
+            </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+            <Form.Group className="mb-3" controlId="formGroupEmail">
             <Dropdown> 
                 <Dropdown.Toggle id="dropdown-basic"> 
                     Select Devices 
@@ -99,14 +122,38 @@ function TicketGeneration() {
                 </Dropdown.Menu> 
             </Dropdown> 
             </Form.Group>
-        <br />
-        <label htmlFor="message">Comments</label>
-        <textarea id="comments" name="comments" onChange={handleChange} value={formData.comments} required />
-        <br />
-        <button>Cancel</button>
-        <button onClick={handleSubmit}>Submit</button>
-      </form>
-    </div>
+            </Col>
+            <Col>
+            <Form.Group className="mb-3" controlId="formGroupEmail">
+                {(selected_products.length != 0) ? selected_products.join(', ') : 'None'} 
+            </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+          <Col>
+          <Form.Group className="mb-3" controlId="formGroupEmail">
+          <Form.Label>Upload Images</Form.Label>
+          <Form.Control type="file" name="images" onChange={handleChange} multiple/>
+          </Form.Group>
+          </Col>
+          </Row>
+          <Row>
+            <Col>
+            <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label>Comments</Form.Label>
+            <Form.Control type="text" name="comments" onChange={handleChange} placeholder="Any Comments" />
+            </Form.Group>
+            </Col>
+          </Row>
+          </Container>
+              </Modal.Body>
+      
+              <Modal.Footer>
+                <Button variant="secondary">Cancel</Button>
+                <Button variant="primary">Submit</Button>
+              </Modal.Footer>
+            </Modal.Dialog>
+    </>
   );
 }
 
