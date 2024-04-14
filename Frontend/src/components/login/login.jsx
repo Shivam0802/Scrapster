@@ -8,87 +8,67 @@ import './login.css';
 
 function Login() {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    type:'customer'
+  });
 
+const handleChange = (e) => { 
+const { name, value } = e.target;
+setFormData({
+    ...formData,
+    [name]: value
+});
+};
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await Axios.post('http://localhost:3000/customer/loginCustomer', {
-        email,
-        password
-      });
-
-      if (response.data) {
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-        toast.success('Login successful');
-        window.location.href = '/';
-      }
-    } catch (err) {
-      toast.error(err.response.data);
-    }
+const handleSubmit = (e) => {
+e.preventDefault();
+// You can add your form submission logic here
+if(formData.type === 'customer'){
+let conn = new XMLHttpRequest();
+conn.open("POST", "http://localhost:3000/customer/loginCustomer", true);
+conn.setRequestHeader("Content-Type", "application/json");
+conn.send(JSON.stringify(formData));
+conn.onreadystatechange = function() {
+  if (this.status === 200) {
+    debugger;
+    //let data = JSON.parse(this.responseText);
+    let data = this.responseText;
+    console.log(data);
+    localStorage.setItem("token", data);
+    if(localStorage.getItem("token") != null){
+      console.log("Success");
+      //isLoggedIn = true;
+      window.location.href = "/";
+  }else{
+    console.log("Error");
   }
-
-  const handleGoogleLogin = async () => {
-    try {
-      const response = await Axios.get('http://localhost:3000/customer/google');
-
-      if (response.data) {
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-        toast.success('Login successful');
-        window.location.href = '/';
-      }
-    } catch (err) {
-      toast.error(err.response.data);
-    }
+};
+}  
+}else{
+let conn = new XMLHttpRequest();
+conn.open("POST", "http://localhost:3000/collectionAgent/loginCollectionAgent", true);
+conn.setRequestHeader("Content-Type", "application/json");
+conn.send(JSON.stringify(formData));
+conn.onreadystatechange = function() {
+  if (this.status === 200) {
+    debugger;
+    //let data = JSON.parse(this.responseText);
+    let data = this.responseText;
+    console.log(data);
+    localStorage.setItem("token", data);
+    if(localStorage.getItem("token") != null){
+      console.log("Success");
+      //isLoggedIn = true;
+      window.location.href = "/";
+  }else{
+    console.log("Error");
   }
-
-  const handleFacebookLogin = async () => {
-    try {
-      const response = await Axios.get('http://localhost:3000/customer/facebook');
-      if (response.data) {
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-        toast.success('Login successful');
-        window.location.href = '/';
-      }
-    } catch (err) {
-      toast.error(err.response.data);
-    }
-  }
-
-  const handleInstagramLogin = async () => {
-    try {
-      const response = await Axios.get('http://localhost:3000/customer/instagram');
-      if (response.data) {
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-        toast.success('Login successful');
-        window.location.href = '/';
-      }
-    } catch (err) {
-      toast.error(err.response.data);
-    }
-  }
-
-  const handleTwitterLogin = async () => {
-    try {
-      const response = await Axios.get('http://localhost:3000/customer/twitter');
-      if (response.data) {
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-        toast.success('Login successful');
-        window.location.href = '/customer';
-      }
-    } catch (err) {
-      toast.error(err.response.data);
-    }
-  }
-
-
+};
+} 
+}
+}
 
   return (
     <div className="container-login">
@@ -114,15 +94,15 @@ function Login() {
               Login with your social media account
             </p>
             <div className="social">
-              <Link to={'https://www.google.com/'} target="_blank" rel="noreferrer" onSubmit={handleGoogleLogin}><FontAwesomeIcon className='googleIcon' icon={faGoogle} /></Link>
-              <Link to={"https://www.facebook.com/"} target="_blank" rel="noreferrer" onSubmit={handleFacebookLogin}><FontAwesomeIcon className='facebookIcon' icon={faFacebook} /></Link>
-              <Link to={"https://www.instagram.com/"} target="_blank" rel="noreferrer" onSubmit={handleInstagramLogin}><FontAwesomeIcon className='instagramIcon' icon={faInstagram} /></Link>
-              <Link to={"https://www.twitter.com/"} target="_blank" rel="noreferrer" onSubmit={handleTwitterLogin}><FontAwesomeIcon className='twitterIcon' icon={faTwitter} /></Link>
+              <Link to={'https://www.google.com/'} target="_blank" rel="noreferrer" ><FontAwesomeIcon className='googleIcon' icon={faGoogle} /></Link>
+              <Link to={"https://www.facebook.com/"} target="_blank" rel="noreferrer" ><FontAwesomeIcon className='facebookIcon' icon={faFacebook} /></Link>
+              <Link to={"https://www.instagram.com/"} target="_blank" rel="noreferrer" ><FontAwesomeIcon className='instagramIcon' icon={faInstagram} /></Link>
+              <Link to={"https://www.twitter.com/"} target="_blank" rel="noreferrer"><FontAwesomeIcon className='twitterIcon' icon={faTwitter} /></Link>
             </div>
           </div>
         </div>
         <div className="inner-right">
-          <form className='form-container' onSubmit={handleLogin}>
+          <form className='form-container' onSubmit={handleSubmit}>
             <h2>Login</h2>
             <p>
               Welcome back to Scrapster........😊
@@ -136,10 +116,10 @@ function Login() {
                 <option value="admin" className='form-option'>Collector</option>
               </select>
               <label htmlFor='username'>Email</label>
-              <input type="text" name="username"  placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} className='form-control' required />
+              <input type="text" name="email"  placeholder='Email' value={formData.email} onChange={handleChange} className='form-control' required />
               <br />
               <label htmlFor='password'>Password</label>
-              <input type="password" name="password"  placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} className='form-control' required/>
+              <input type="password" name="password"  placeholder='Password' value={formData.password} onChange={handleChange} className='form-control' required/>
               <br />
             </div>
             
@@ -150,7 +130,7 @@ function Login() {
 
             <br />
             {/* <input type="hidden" name="_token" id="_token" /> */}
-            <button type='submit' className="btn" name='login'>Login</button>
+            <button type='submit' className="btn" name='login' onClick={handleSubmit}>Login</button>
             <p>
               Don't have an account? <Link to ="/Signup">Sign up</Link>
             </p>
