@@ -104,7 +104,7 @@ function TicketGeneration() {
           </Row>
           <Row>
             <Col>
-            <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Group className="mb-4" controlId="formGroupEmail" style={{width:'430px'}}>
             <Form.Label>Email</Form.Label>
             <Form.Control type="email" name="email" onChange={handleChange} placeholder="Email" />
             </Form.Group>
@@ -112,18 +112,21 @@ function TicketGeneration() {
           </Row>
           <Row>
             <Col>
-            <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Group className="d-flex mb-4" controlId="formGroupEmail" style={{width:'300px'}}>
+            <Form.Label>Devices</Form.Label>
             <Dropdown> 
-                <Dropdown.Toggle id="dropdown-basic"> 
+                <Dropdown.Toggle id="dropdown-basic" style={{backgroundColor:'cadetblue'}}> 
                     Select Devices 
                 </Dropdown.Toggle> 
-                <Dropdown.Menu> 
+                <Dropdown.Menu > 
                     {products.map((option, index) => ( 
                         <Dropdown.Item 
                             key={index} 
                             onClick={() => toggleLang(option)} 
                             active={ 
-                                selected_products.includes(option)} 
+                                selected_products.includes(option)
+                                    
+                              } 
                         > 
                             {option} 
                         </Dropdown.Item> 
@@ -134,13 +137,13 @@ function TicketGeneration() {
             </Col>
             <Col>
             <Form.Group className="mb-3" controlId="formGroupEmail">
-                {(selected_products.length != 0) ? selected_products.join(', ') : 'None'} 
+                {(selected_products.length != 0) ? selected_products.join(', ') :""} 
             </Form.Group>
             </Col>
           </Row>
           <Row>
           <Col>
-          <Form.Group className="mb-3" controlId="formGroupEmail">
+          <Form.Group className="mb-3" controlId="formGroupEmail" style={{width:'420px'}}>
           <Form.Label>Upload Images</Form.Label>
           <Form.Control type="file" name="images" onChange={handleChange} multiple/>
           </Form.Group>
@@ -148,7 +151,7 @@ function TicketGeneration() {
           </Row>
           <Row>
             <Col>
-            <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Group className="mb-3" controlId="formGroupEmail" style={{width:'420px'}}>
             <Form.Label>Comments</Form.Label>
             <Form.Control type="text" name="comments" onChange={handleChange} placeholder="Any Comments" />
             </Form.Group>
@@ -157,9 +160,12 @@ function TicketGeneration() {
           </Container>
               </Modal.Body>
       
+        
               <Modal.Footer>
-                <Button variant="secondary">Cancel</Button>
-                <Button variant="primary" onClick={handleSubmit}>Submit</Button>
+                <div className="ticket-button">
+                <Button variant="secondary" className="btn-ticket-cancel">Cancel</Button>
+                <Button variant="primary" onClick={handleSubmit} className="btn-ticket-submit">Submit</Button>
+                </div>
               </Modal.Footer>
             </Modal.Dialog>
             </div>

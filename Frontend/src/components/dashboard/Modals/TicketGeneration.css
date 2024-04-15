@@ -17,3 +17,53 @@
     justify-content: center;
     align-items: center;
 }
+
+.ticket-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 80px;
+    margin-right: 20px;
+}
+
+.btn-ticket-cancel{
+    background-color: #af4c6f;
+    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.btn-ticket-cancel:hover{
+    opacity: 1;
+    background-color: rgb(87, 163, 173);
+    color: black;
+}
+
+.btn-ticket-submit{
+    background-color: #0a4a6c;
+    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.btn-ticket-submit:hover{
+    opacity: 1;
+    background-color: rgb(16, 156, 95);
+    color: black;
+}
+
+
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #5e7ead;
+}
