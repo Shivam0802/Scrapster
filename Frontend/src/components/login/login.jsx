@@ -1,7 +1,5 @@
 import React, { useState,useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
-import { toast } from 'react-hot-toast';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faInstagram, faTwitter} from '@fortawesome/free-brands-svg-icons';
 import './login.css';

@@ -11,6 +11,7 @@ import './TicketGeneration.css';
 
 function TicketGeneration() {
 
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -81,9 +82,12 @@ function TicketGeneration() {
     <> 
     <div className="Background">
      <div className="ticket-container">
+     
           <Modal.Dialog>
-              <Modal.Header>
-                <Modal.Title>Create Ticket</Modal.Title>
+              <Modal.Header style={{justifyContent:'center'}} closeButton>
+                
+                <Modal.Title >Create Ticket</Modal.Title>
+              
               </Modal.Header>
       
               <Modal.Body>
@@ -163,11 +167,12 @@ function TicketGeneration() {
         
               <Modal.Footer>
                 <div className="ticket-button">
-                <Button variant="secondary" className="btn-ticket-cancel">Cancel</Button>
+                <Button variant="secondary" className="btn-ticket-cancel" >Cancel</Button>
                 <Button variant="primary" onClick={handleSubmit} className="btn-ticket-submit">Submit</Button>
                 </div>
               </Modal.Footer>
             </Modal.Dialog>
+    
             </div>
             </div>
     </>
