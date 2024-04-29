@@ -10,6 +10,7 @@ function Navbar() {
     const handleLogout = () => {
       localStorage.removeItem('token');
       setLoggedin(false);
+        window.location.href = '/';
     }
 
     return (

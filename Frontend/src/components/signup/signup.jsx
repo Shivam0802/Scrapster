@@ -33,12 +33,40 @@ function Signup() {
 
     const handleSubmit = (e) => {
     e.preventDefault();
-    toast.error('User Already Exists')
-    return;
     if(formData.email === '' || formData.password === '' || formData.firstName === '' || formData.lastName === '' || formData.mobile === '' || formData.address === '' || formData.city === '' || formData.pincode === '' || formData.state === ''){
         toast.error('Please fill all the fields');
         return;
     }
+
+    if(formData.password !== formData.repeatpassword){
+        toast.error('Passwords do not match');
+        return;
+    }
+
+    if (!/^[a-zA-Z ]+$/.test(formData.firstName)) {
+        toast.error("Name is invalid");
+        return;
+      }
+
+      if (!/^[a-zA-Z ]+$/.test(formData.lastName)) {
+        toast.error("Name is invalid");
+        return;
+      }
+  
+      // check email is valid
+      if (!/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(formData.email)) {
+        toast.error("Email is invalid");
+        return;
+      }
+  
+      // check phone is valid
+      if (!/^[0-9]{10}$/.test(formData.phone)) {
+        toast.error("Phone is invalid");
+        return;
+      }
+  
+
+
     // You can add your form submission logic here
     if (formData.type === 'customer'){
     let conn = new XMLHttpRequest();

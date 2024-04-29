@@ -102,6 +102,10 @@ function TicketGeneration() {
 
   };
 
+  function handleCancel() {
+    window.location.href = "/customer";
+  }
+
 
   return (
     <> 
@@ -109,7 +113,7 @@ function TicketGeneration() {
      <div className="ticket-container">
       <ToastContainer />
           <Modal.Dialog>
-              <Modal.Header style={{justifyContent:'center'}} closeButton>
+              <Modal.Header style={{justifyContent:'center'}}>
                 
                 <Modal.Title >Create Ticket</Modal.Title>
               
@@ -192,7 +196,7 @@ function TicketGeneration() {
         
               <Modal.Footer>
                 <div className="ticket-button">
-                <Button variant="secondary" className="btn-ticket-cancel" >Cancel</Button>
+                <Button variant="secondary" onClick={handleCancel} className="btn-ticket-cancel" >Cancel</Button>
                 <Button variant="primary" onClick={handleSubmit} className="btn-ticket-submit">Submit</Button>
                 </div>
               </Modal.Footer>
