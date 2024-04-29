@@ -61,29 +61,6 @@ function TicketGeneration() {
 
   const handleSubmit = (e) => {
 
-    if(formData.name === '' || formData.email === '' || formData.phone === '' || formData.devices.length === 0 || formData.images.length === 0){
-      toast.error("Please fill all the fields");
-      return;
-    }
-
-    // check name is valid
-    if (!/^[a-zA-Z ]+$/.test(formData.name)) {
-      toast.error("Name is invalid");
-      return;
-    }
-
-    // check email is valid
-    if (!/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(formData.email)) {
-      toast.error("Email is invalid");
-      return;
-    }
-
-    // check phone is valid
-    if (!/^[0-9]{10}$/.test(formData.phone)) {
-      toast.error("Phone is invalid");
-      return;
-    }
-
     e.preventDefault();
     let conn = new XMLHttpRequest();
         conn.open("POST", "http://localhost:3000/ticket/createTicket", true);
