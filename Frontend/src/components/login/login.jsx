@@ -1,9 +1,9 @@
-import React, { useState,useContext } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
-import { toast } from 'react-hot-toast';
+import { ToastContainer, toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faInstagram, faTwitter} from '@fortawesome/free-brands-svg-icons';
+import 'react-toastify/dist/ReactToastify.css';
 import './login.css';
 
 function Login() {
@@ -23,7 +23,11 @@ setFormData({
 };
 
 const handleSubmit = (e) => {
-e.preventDefault();
+  e.preventDefault();
+  if(formData.email === '' || formData.password === ''){
+    toast.error('Please fill all the fields');
+    return;
+  }
 // You can add your form submission logic here
 if(formData.type === 'customer'){
 let conn = new XMLHttpRequest();
@@ -41,7 +45,7 @@ conn.onreadystatechange = function() {
       //isLoggedIn = true;
       window.location.href = "/";
   }else{
-    console.log("Error");
+    toast.error('Invalid credentials');
   }
 };
 }  
@@ -52,7 +56,6 @@ conn.setRequestHeader("Content-Type", "application/json");
 conn.send(JSON.stringify(formData));
 conn.onreadystatechange = function() {
   if (this.status === 200) {
-    debugger;
     //let data = JSON.parse(this.responseText);
     let data = this.responseText;
     console.log(data);
@@ -62,7 +65,7 @@ conn.onreadystatechange = function() {
       //isLoggedIn = true;
       window.location.href = "/";
   }else{
-    console.log("Error");
+    toast.error('Invalid credentials');
   }
 };
 } 
@@ -73,6 +76,7 @@ conn.onreadystatechange = function() {
     <div className="container-login">
       <div className="App-Login">
         <div className="inner-left-login">
+          <ToastContainer />
           <div className="overlay">
             <h1>
               Scrapster!!!
@@ -116,9 +120,9 @@ conn.onreadystatechange = function() {
               </select>
     
               <label htmlFor='username'>Email</label>
-              <input type="text" name="email"  placeholder='Email' value={formData.email} onChange={handleChange} className='form-control' required />
+              <input type="text" name="email"  placeholder='Email' value={formData.email} onChange={handleChange} className='form-control' />
               <label htmlFor='password'>Password</label>
-              <input type="password" name="password"  placeholder='Password' value={formData.password} onChange={handleChange} className='form-control' required/>
+              <input type="password" name="password"  placeholder='Password' value={formData.password} onChange={handleChange} className='form-control'/>
               <br />
             </div>
             

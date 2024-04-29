@@ -10,6 +10,10 @@ const Custumer = () => {
 
     const [showTicketModal, setShowTicketModal] = useState(false);
 
+    if(!localStorage.getItem('token')){
+        window.location.href = '/login';
+    }
+
     return (
         <>
             <div className='Customer-Dashboard'>
