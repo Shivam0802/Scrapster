@@ -30,7 +30,7 @@ const loginCustomer = asyncHandler(async (req, res) => {
             }, process.env.ACCSESS_TOKEN_SECRET, { expiresIn: '1d' });
             res.status(200).json({ accesToken });
         } else {
-            res.status(400,"Invalid email or password");
+            res.send(400,"Invalid email or password");
         }
     }else{
         res.status(400,"Invalid email or password");
@@ -47,7 +47,7 @@ const registerCustomer = asyncHandler(async (req, res) => {
 
     let customerExists = await Customer.findOne({ email: details.email });
     if (customerExists) {
-        res.status(400 ,"Customer already exists");
+        res.status(400).send("Customer already exists");
     }
     let hashedPass = await bcrypt.hash(req.body.password, 10);
     let customer = await Customer.create({
