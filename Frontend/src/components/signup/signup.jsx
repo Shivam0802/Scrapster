@@ -125,34 +125,34 @@ function Signup() {
                         </div>
                         <label htmlFor='firstName,lastName'>Name</label>
                         <div className="form-group">
-                            <input type="text" name="firstName" value={formData.firstName ?? ""} onChange={handleChange} placeholder='First Name' className='form-control' />
+                            <input type="text" name="firstName" value={formData.firstName ?? ""} onChange={handleChange} placeholder='First Name' className='form-control' required />
                             <input type="text" name="lastName" value={formData.lastName ?? ""} onChange={handleChange} placeholder='Last Name' className='form-control' />
                         </div>
                         <label htmlFor='email'>Email</label>
                         <div className="form-wrapper">
-                            <input type="email" name="email" value={formData.email ?? ""} onChange={handleChange} placeholder='Email' className='form-control' />
+                            <input type="email" name="email" value={formData.email ?? ""} onChange={handleChange} placeholder='Email' className='form-control' required />
                         </div>
                         <label htmlFor='phone'>Contact</label>
                         <div className="form-wrapper">
-                            <input type="tel" name="mobile" value={formData.mobile ?? ""} onChange={handleChange} placeholder='Contact' className='form-control' />
+                            <input type="tel" name="mobile" value={formData.mobile ?? ""} onChange={handleChange} placeholder='Contact' className='form-control' required />
                         </div>
                         <label htmlFor='address'>Address</label>
                         <div className="form-wrapper">
-                            <input type="text" name="address" value={formData.address ?? ""} onChange={handleChange} placeholder='Address' className='form-control' />
+                            <input type="text" name="address" value={formData.address ?? ""} onChange={handleChange} placeholder='Address' className='form-control' required />
                         </div>
                         <label htmlFor='city,zip'>City</label>
                         <div className="form-group">
-                            <input type="text" name="city" value={formData.city ?? ""} onChange={handleChange} placeholder='City' className='form-control' />
-                            <input type="text" name="pincode" value={formData.pincode ?? ""} onChange={handleChange} placeholder='Pincode' className='form-control' />
+                            <input type="text" name="city" value={formData.city ?? ""} onChange={handleChange} placeholder='City' className='form-control' required />
+                            <input type="text" name="pincode" value={formData.pincode ?? ""} onChange={handleChange} placeholder='Pincode' className='form-control' required />
                         </div>
                         <label htmlFor='state'>State</label>
                         <div className="form-wrapper">
-                            <input type="text" name="state" value={formData.state ?? ""} onChange={handleChange} placeholder='State' className='form-control' />
+                            <input type="text" name="state" value={formData.state ?? ""} onChange={handleChange} placeholder='State' className='form-control' required />
                         </div>
                         <label htmlFor='password'>Password</label>
                         <div className="form-group">
-                            <input type="password" name="password" value={formData.password ?? ""} onChange={handleChange} placeholder='Password' className='form-control' />
-                            <input type="password" name="repeatpassword" value={formData.repeatpassword ?? ""} onChange={handleChange} placeholder='Confirm Password' className='form-control' />
+                            <input type="password" name="password" value={formData.password ?? ""} onChange={handleChange} placeholder='Password' className='form-control' required />
+                            <input type="password" name="repeatpassword" value={formData.repeatpassword ?? ""} onChange={handleChange} placeholder='Confirm Password' className='form-control' required />
                         </div>
                         <br />
                         <div className="form-check">
