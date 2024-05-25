@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useState } from "react";
 import './TicketGeneration.css';
-import toast from "react-hot-toast";
+import { toast, ToastContainer } from 'react-toastify';
 
 function TicketGeneration() {
 
@@ -95,7 +95,7 @@ function TicketGeneration() {
     <> 
     <div className="Background">
      <div className="ticket-container">
-     
+      <ToastContainer />
           <Modal.Dialog>
               <Modal.Header style={{justifyContent:'center'}}>
                 
@@ -172,8 +172,8 @@ function TicketGeneration() {
         
               <Modal.Footer>
                 <div className="ticket-button">
-                <Button variant="secondary" className="btn-ticket-cancel" onClick={handleCancel} >Cancel</Button>
-                <Button variant="primary" onClick={handleSubmit}  className="btn-ticket-submit">Submit</Button>
+                <Button variant="secondary" onClick={handleCancel} className="btn-ticket-cancel" >Cancel</Button>
+                <Button variant="primary" onClick={handleSubmit} className="btn-ticket-submit">Submit</Button>
                 </div>
               </Modal.Footer>
             </Modal.Dialog>

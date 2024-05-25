@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './signup.css'
-import { toast } from 'react-hot-toast';
+
 
 function Signup() {
 
@@ -31,6 +33,7 @@ function Signup() {
 
     const handleSubmit = (e) => {
     e.preventDefault();
+    
     // You can add your form submission logic here
     if (formData.type === 'customer'){
     let conn = new XMLHttpRequest();
@@ -77,6 +80,7 @@ function Signup() {
         <div className="container-signup">
             <div className="App-signup">
                 <div className="inner-left">
+                    <ToastContainer />
                     <div className="overlay">
                         <h1>
                             Scrapster!!!

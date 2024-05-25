@@ -26,7 +26,7 @@ function App() {
                <Route path="/services" element={<Services />} />
                <Route path="/contactus" element={<Contactus />} />
                <Route path="/customer" element={<Custumer />} />
-               <Route path="/ticket" element={<TicketGenerationModal />} />
+               <Route path="/ticket" element={ localStorage.getItem('token') ? <TicketGenerationModal /> : <Login />} />
             </Routes>
             
          </BrowserRouter >
