@@ -5,6 +5,52 @@
     background-color: #f6f6f6;
 }
 
+.service-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.service-image-left{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 1rem;
+    animation: slide-up 1s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-image-right{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 1rem;
+    animation: slide-up 1s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-image-middle{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 1rem;
+    animation: slide-up 1s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 @keyframes slide-up {
     0% {
         visibility: visible;
@@ -51,63 +97,3 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.service-image{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-}
-
-.service-image h2{
-    margin: 10px;
-    text-align: center;
-    color: #3c3b3b;
-}
-
-.service-image h2:hover{
-    color:rgb(212, 164, 121);
-}
-
-.service-image p{
-    font-size: 18px;
-    color: #424141;
-    text-align: center;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.service-image-left{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color:rgb(233, 129, 118);
-    margin: 20px; 
-    padding: 18px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-}
-
-.service-image-middle{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: cadetblue;
-    margin: 20px; 
-    padding: 18px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-
-}
-
-.service-image-right{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color:mediumseagreen;
-    margin: 20px; 
-    padding: 18px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-}

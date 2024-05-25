@@ -13,7 +13,7 @@ function Services() {
 
     function handleService() {
         if (localStorage.getItem('token') !== null) {
-            window.location.href = '/customer';
+            window.location.href = '/ticket';
         } else {
             window.location.href = '/login';
         }

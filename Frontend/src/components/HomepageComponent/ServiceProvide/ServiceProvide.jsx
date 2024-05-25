@@ -19,21 +19,21 @@ function ServiceProvide() {
             </div>
             <div className='service-image'>
                 <div className='service-image-left'>
-                    <FontAwesomeIcon icon={faDumpster} size='3x' />
+                    <FontAwesomeIcon icon={faDumpster} size='3x' style={{color:"burlywood"}} />
                     <Link to="/services"><h2>Collection</h2></Link>
                     <p>
                         Scrapster offers doorstep collection services for electronic waste. Our team of professionals will pick up your e-waste and ensure that it is disposed of in an environmentally friendly manner.
                     </p>
                 </div>
                 <div className='service-image-middle'>
-                    <FontAwesomeIcon icon={faTruck} size='3x' />
+                    <FontAwesomeIcon icon={faTruck} size='3x' style={{color:"salmon"}} />
                     <Link to="/services"><h2>Transportation</h2></Link>
                     <p>
                         Scrapster provides transportation services for the collection and disposal of recyclable materials. Our fleet of vehicles ensures safe and efficient transportation of waste to recycling facilities.
                     </p>
                 </div>
                 <div className='service-image-right'>
-                    <FontAwesomeIcon icon={faRecycle} size='3x' />
+                    <FontAwesomeIcon icon={faRecycle} size='3x' style={{color:"seagreen"}} />
                     <Link to="/services"><h2>Disposal</h2></Link>
                     <p>
                         Dispose of your electronic waste responsibly with Scrapster. We collect, recycle, and refurbish electronic items to reduce environmental impact and promote sustainability.

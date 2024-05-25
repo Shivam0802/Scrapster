@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useState } from "react";
 import './TicketGeneration.css';
+import toast from "react-hot-toast";
 
 function TicketGeneration() {
 
@@ -59,6 +60,7 @@ function TicketGeneration() {
   };
 
   const handleSubmit = (e) => {
+    handleValidation();
     e.preventDefault();
     let conn = new XMLHttpRequest();
         conn.open("POST", "http://localhost:3000/ticket/createTicket", true);
@@ -68,15 +70,26 @@ function TicketGeneration() {
             console.log(this.status);
           if (this.status === 200) {
             console.log(this.responseText);
-            window.location.href = "/customer";
+            window.location.href = "/";
           }
           else{
-            // toast.error("Error");
+            toast.error("Error in creating ticket!");
           }
         };
-
   };
 
+  const handleCancel = (e) => {
+    e.preventDefault();
+    window.location.href = "/";
+  };
+
+  const handleValidation = () => {
+    if (formData.name === '' || formData.email === '' || formData.phone === '' || formData.devices.length === 0 || formData.images.length === 0) {
+      toast.error("Please fill all the fields!");
+      return false;
+    }
+    return true;
+  };
 
   return (
     <> 
@@ -84,9 +97,9 @@ function TicketGeneration() {
      <div className="ticket-container">
      
           <Modal.Dialog>
-              <Modal.Header style={{justifyContent:'center'}} closeButton>
+              <Modal.Header style={{justifyContent:'center'}}>
                 
-                <Modal.Title >Create Ticket</Modal.Title>
+                <Modal.Title>Create Ticket</Modal.Title>
               
               </Modal.Header>
       
@@ -96,13 +109,13 @@ function TicketGeneration() {
           <Col>
           <Form.Group className="mb-3" controlId="formGroupEmail">
             <Form.Label>Name</Form.Label>
-            <Form.Control type="text" name="name" onChange={handleChange} placeholder="Name" />
+            <Form.Control type="text" name="name" onChange={handleChange} placeholder="Name" required  />
           </Form.Group>
           </Col>
           <Col>
           <Form.Group className="mb-3" controlId="formGroupEmail">
             <Form.Label>Phone</Form.Label>
-            <Form.Control type="text" name="phone" onChange={handleChange} placeholder="Phone" />
+            <Form.Control type="text" name="phone" onChange={handleChange} placeholder="Phone" required/>
           </Form.Group>
             </Col>
           </Row>
@@ -110,7 +123,7 @@ function TicketGeneration() {
             <Col>
             <Form.Group className="mb-4" controlId="formGroupEmail" style={{width:'430px'}}>
             <Form.Label>Email</Form.Label>
-            <Form.Control type="email" name="email" onChange={handleChange} placeholder="Email" />
+            <Form.Control type="email" name="email" onChange={handleChange} placeholder="Email" required />
             </Form.Group>
             </Col>
           </Row>
@@ -149,17 +162,9 @@ function TicketGeneration() {
           <Col>
           <Form.Group className="mb-3" controlId="formGroupEmail" style={{width:'420px'}}>
           <Form.Label>Upload Images</Form.Label>
-          <Form.Control type="file" name="images" onChange={handleChange} multiple/>
+          <Form.Control type="file" name="images" onChange={handleChange} multiple required/>
           </Form.Group>
           </Col>
-          </Row>
-          <Row>
-            <Col>
-            <Form.Group className="mb-3" controlId="formGroupEmail" style={{width:'420px'}}>
-            <Form.Label>Comments</Form.Label>
-            <Form.Control type="text" name="comments" onChange={handleChange} placeholder="Any Comments" />
-            </Form.Group>
-            </Col>
           </Row>
           </Container>
               </Modal.Body>
@@ -167,8 +172,8 @@ function TicketGeneration() {
         
               <Modal.Footer>
                 <div className="ticket-button">
-                <Button variant="secondary" className="btn-ticket-cancel" >Cancel</Button>
-                <Button variant="primary" onClick={handleSubmit} className="btn-ticket-submit">Submit</Button>
+                <Button variant="secondary" className="btn-ticket-cancel" onClick={handleCancel} >Cancel</Button>
+                <Button variant="primary" onClick={handleSubmit}  className="btn-ticket-submit">Submit</Button>
                 </div>
               </Modal.Footer>
             </Modal.Dialog>
