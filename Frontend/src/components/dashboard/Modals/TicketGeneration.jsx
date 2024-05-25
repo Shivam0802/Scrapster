@@ -11,8 +11,6 @@ import './TicketGeneration.css';
 import { toast, ToastContainer } from 'react-toastify';
 
 function TicketGeneration() {
-
-
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -60,8 +58,9 @@ function TicketGeneration() {
   };
 
   const handleSubmit = (e) => {
-    handleValidation();
     e.preventDefault();
+
+    if (handleValidation()) {
     let conn = new XMLHttpRequest();
         conn.open("POST", "http://localhost:3000/ticket/createTicket", true);
         conn.setRequestHeader("Content-Type", "application/json");
@@ -76,6 +75,7 @@ function TicketGeneration() {
             toast.error("Error in creating ticket!");
           }
         };
+    }
   };
 
   const handleCancel = (e) => {
