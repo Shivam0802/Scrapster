@@ -2,75 +2,97 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle, faFacebook, faInstagram, faTwitter} from '@fortawesome/free-brands-svg-icons';
+import { faGoogle, faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import 'react-toastify/dist/ReactToastify.css';
 import './login.css';
 
-function Login() {
+const emailRegex = RegExp(
+  /^[a-zA-Z0-9._:$!%-]+@[a-zA-Z]+.[a-zA-Z]/
+);
 
+const passwordRegex = RegExp(
+  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+);
+
+function Login() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    type:'customer'
+    type: 'customer'
   });
 
-const handleChange = (e) => { 
-const { name, value } = e.target;
-setFormData({
-    ...formData,
-    [name]: value
-});
-};
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  if(formData.email === '' || formData.password === ''){
-    toast.error('Please fill all the fields');
-    return;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!handleValidation()) {
+      // You can add your form submission logic here
+      if (formData.type === 'customer') {
+        let conn = new XMLHttpRequest();
+        conn.open("POST", "http://localhost:3000/customer/loginCustomer", true);
+        conn.setRequestHeader("Content-Type", "application/json");
+        conn.send(JSON.stringify(formData));
+        conn.onreadystatechange = function () {
+          if (this.status === 200) {
+            //let data = JSON.parse(this.responseText);
+            let data = this.responseText;
+            console.log(data);
+            localStorage.setItem("token", data);
+            if (localStorage.getItem("token") != null) {
+              console.log("Success");
+              //isLoggedIn = true;
+              window.location.href = "/";
+            } else {
+              toast.error('Invalid credentials');
+            }
+          };
+        }
+      
+    } else {
+      let conn = new XMLHttpRequest();
+      conn.open("POST", "http://localhost:3000/collectionAgent/loginCollectionAgent", true);
+      conn.setRequestHeader("Content-Type", "application/json");
+      conn.send(JSON.stringify(formData));
+      conn.onreadystatechange = function () {
+        if (this.status === 200) {
+          //let data = JSON.parse(this.responseText);
+          let data = this.responseText;
+          console.log(data);
+          localStorage.setItem("token", data);
+          if (localStorage.getItem("token") != null) {
+            console.log("Success");
+            //isLoggedIn = true;
+            window.location.href = "/";
+          } else {
+            toast.error('Invalid credentials');
+          }
+        };
+      }
+    }
   }
-// You can add your form submission logic here
-if(formData.type === 'customer'){
-let conn = new XMLHttpRequest();
-conn.open("POST", "http://localhost:3000/customer/loginCustomer", true);
-conn.setRequestHeader("Content-Type", "application/json");
-conn.send(JSON.stringify(formData));
-conn.onreadystatechange = function() {
-  if (this.status === 200) {
-    //let data = JSON.parse(this.responseText);
-    let data = this.responseText;
-    console.log(data);
-    localStorage.setItem("token", data);
-    if(localStorage.getItem("token") != null){
-      console.log("Success");
-      //isLoggedIn = true;
-      window.location.href = "/";
-  }else{
-    toast.error('Invalid credentials');
   }
-};
-}  
-}else{
-let conn = new XMLHttpRequest();
-conn.open("POST", "http://localhost:3000/collectionAgent/loginCollectionAgent", true);
-conn.setRequestHeader("Content-Type", "application/json");
-conn.send(JSON.stringify(formData));
-conn.onreadystatechange = function() {
-  if (this.status === 200) {
-    //let data = JSON.parse(this.responseText);
-    let data = this.responseText;
-    console.log(data);
-    localStorage.setItem("token", data);
-    if(localStorage.getItem("token") != null){
-      console.log("Success");
-      //isLoggedIn = true;
-      window.location.href = "/";
-  }else{
-    toast.error('Invalid credentials');
+
+  const handleValidation = () => {
+    if (formData.email === '' || formData.password === '') {
+      toast.error('Please fill all the fields');
+      return false;
+    }
+    else if (!emailRegex.test(formData.email)) {
+      toast.error('Invalid email');
+      return false;
+    }
+    else if (!passwordRegex.test(formData.password)) {
+      toast.error('Password must contain atleast 8 characters, one uppercase, one lowercase and one number');
+      return false;
+    }
+    return true;
   }
-};
-} 
-}
-}
 
   return (
     <div className="container-login">
@@ -109,7 +131,7 @@ conn.onreadystatechange = function() {
             <h2>Login</h2>
             <p>
               Welcome back to Scrapster........😊
-              <br/>Please login to your account.
+              <br />Please login to your account.
             </p>
             <hr />
             <div className="form-wrapper">
@@ -118,16 +140,16 @@ conn.onreadystatechange = function() {
                 <option value="customer" className='form-option'>Customer</option>
                 <option value="admin" className='form-option'>Collector</option>
               </select>
-    
+
               <label htmlFor='username'>Email</label>
-              <input type="text" name="email"  placeholder='Email' value={formData.email} onChange={handleChange} className='form-control' />
+              <input type="text" name="email" placeholder='Email' value={formData.email} onChange={handleChange} className='form-control' />
               <label htmlFor='password'>Password</label>
-              <input type="password" name="password"  placeholder='Password' value={formData.password} onChange={handleChange} className='form-control'/>
+              <input type="password" name="password" placeholder='Password' value={formData.password} onChange={handleChange} className='form-control' />
               <br />
             </div>
-            
+
             <div className='Fgtpwd'>
-            <input type="checkbox" name="remember" id='Remember' checked /><label>Remember me</label>
+              <input type="checkbox" name="remember" id='Remember' checked /><label>Remember me</label>
               <Link to="/fgtpwd">Forgot Password?</Link>
             </div>
 
@@ -135,7 +157,7 @@ conn.onreadystatechange = function() {
             {/* <input type="hidden" name="_token" id="_token" /> */}
             <button type='submit' className="btn" name='login' onClick={handleSubmit}>Login</button>
             <p>
-              Don't have an account? <Link to ="/Signup">Sign up</Link>
+              Don't have an account? <Link to="/Signup">Sign up</Link>
             </p>
             <br />
           </form>

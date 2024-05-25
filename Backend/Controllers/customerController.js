@@ -21,6 +21,7 @@ const loginCustomer = asyncHandler(async (req, res) => {
                     firstName: customer.firstName,
                     lastName: customer.lastName,
                     email: customer.email,
+                    contact: customer.mobile,
                     address: customer.address,
                     city: customer.city,
                     state: customer.state,

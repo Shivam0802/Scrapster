@@ -6,6 +6,36 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './signup.css'
 
+const validateName = (name) => {
+    const re = /^[a-zA-Z]+$/;
+    return re.test(name);
+};
+
+const validateEmail = (email) => {
+    const re = /^[a-zA-Z0-9._:$!%-]+@[a-zA-Z]+.[a-zA-Z]/;
+    return re.test(email);
+};
+
+const validatePhone = (contact) => {
+    const re = /^\d{10}$/;
+    return re.test(contact);
+};
+
+const validatePassword = (password) => {
+    const re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+    return re.test(password);
+};
+
+const validatePincode = (pincode) => {
+    const re = /^\d{6}$/;
+    return re.test(pincode);
+};
+
+const validateState = (state) => {
+    const re = /^[a-zA-Z]+$/;
+    return re.test(state);
+};
+
 
 function Signup() {
 
@@ -20,62 +50,105 @@ function Signup() {
         address: '',
         city: '',
         pincode: '',
-        state:''
-      });
-
-    const handleChange = (e) => { 
-    const { name, value } = e.target;
-    setFormData({
-        ...formData,
-        [name]: value
+        state: ''
     });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
     };
 
     const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    // You can add your form submission logic here
-    if (formData.type === 'customer'){
-    let conn = new XMLHttpRequest();
-    conn.open("POST", "http://localhost:3000/customer/registerCustomer", true);
-    conn.setRequestHeader("Content-Type", "application/json");
-    conn.send(JSON.stringify(formData));
-    conn.onreadystatechange = function() {
-        console.log(this.status);
-      if (this.status === 200) {
-        // let data = JSON.parse(this.responseText);
-        // console.log(data);
-        // toast.remove()
-        toast.success("Registered Successfully");
-        window.location.href = "/login";
-        
-      }
-      else{
-        toast.error("Error");
-      }
-    };
-    }else{
-        let conn = new XMLHttpRequest();
-        conn.open("POST", "http://localhost:3000/collectionAgent/registerCollectionAgent", true);
-        conn.setRequestHeader("Content-Type", "application/json");
-        conn.send(JSON.stringify(formData));
-        conn.onreadystatechange = function() {
-            console.log(this.status);
-          if (this.status === 200) {
-            // let data = JSON.parse(this.responseText);
-            // console.log(data);
-            // toast.remove()
-            toast.success("Registered Successfully");
-            window.location.href = "/login";
-            
-          }
-          else{
-            toast.error("Error");
-          }
-        };
+        e.preventDefault();
+        // You can add your form submission logic here
+        if (formData.type === 'customer') {
+            if (!handleValidation()) {
+                let conn = new XMLHttpRequest();
+                conn.open("POST", "http://localhost:3000/customer/registerCustomer", true);
+                conn.setRequestHeader("Content-Type", "application/json");
+                conn.send(JSON.stringify(formData));
+                conn.onreadystatechange = function () {
+                    console.log(this.status);
+                    if (this.status === 200) {
+                        // let data = JSON.parse(this.responseText);
+                        // console.log(data);
+                        // toast.remove()
+                        toast.success("Registered Successfully");
+                        window.location.href = "/login";
+
+                    }
+                    else {
+                        //toast.error("Error");
+                    }
+                };
+            }
+        } else {
+            if (!handleValidation()) {
+                let conn = new XMLHttpRequest();
+                conn.open("POST", "http://localhost:3000/collectionAgent/registerCollectionAgent", true);
+                conn.setRequestHeader("Content-Type", "application/json");
+                conn.send(JSON.stringify(formData));
+                conn.onreadystatechange = function () {
+                    console.log(this.status);
+                    if (this.status === 200) {
+                        // let data = JSON.parse(this.responseText);
+                        // console.log(data);
+                        // toast.remove()
+                        toast.success("Registered Successfully");
+                        window.location.href = "/login";
+
+                    }
+                    else {
+                        //toast.error("Error");
+                    }
+                };
+            }
+        }
     }
-}
- 
+
+    const handleValidation = () => {
+        if (formData.firstName === '' || formData.lastName === '' || formData.email === '' || formData.mobile === '' || formData.password === '' || formData.repeatpassword === '' || formData.address === '' || formData.city === '' || formData.pincode === '' || formData.state === '') {
+            toast.error('All fields are required');
+            return true;
+        }
+        else if (!validateName(formData.firstName)) {
+            toast.error('Invalid First Name');
+            return false;
+        }
+        else if (!validateName(formData.lastName)) {
+            toast.error('Invalid Last Name');
+            return false;
+        }
+        else if (!validateEmail(formData.email)) {
+            toast.error('Invalid Email');
+            return false;
+        }
+        else if (!validatePhone(formData.mobile)) {
+            toast.error('Invalid Contact');
+            return false;
+        }
+        else if (!validatePassword(formData.password)) {
+            toast.error('Password must contain atleast 8 characters, 1 uppercase, 1 lowercase and 1 number');
+            return false;
+        }
+        else if (formData.password !== formData.repeatpassword) {
+            toast.error('Passwords do not match');
+            return false;
+        }
+        else if (!validatePincode(formData.pincode)) {
+            toast.error('Invalid Pincode');
+            return false;
+        }
+        else if (!validateState(formData.state)) {
+            toast.error('Invalid State');
+            return false;
+        }
+        return true;
+    };
+
     return (
         <div className="container-signup">
             <div className="App-signup">
@@ -121,11 +194,11 @@ function Signup() {
                         </p>
                         <hr />
                         <div className='form-wrapper'>
-                        <label htmlFor='role'>Role</label>
-                        <select name="role" className='form-control'>
-                            <option value="customer" className='form-option'>Customer</option>
-                            <option value="admin" className='form-option'>Collector</option>
-                        </select>
+                            <label htmlFor='role'>Role</label>
+                            <select name="role" className='form-control'>
+                                <option value="customer" className='form-option'>Customer</option>
+                                <option value="admin" className='form-option'>Collector</option>
+                            </select>
                         </div>
                         <label htmlFor='firstName,lastName'>Name</label>
                         <div className="form-group">
@@ -164,12 +237,12 @@ function Signup() {
                             <label htmlFor="terms">I agree to the <a>Terms and Conditions</a></label>
                         </div>
                         <div className="form-check">
-                            <input type="checkbox" name="privacy"  checked />
+                            <input type="checkbox" name="privacy" checked />
                             <label htmlFor="privacy">I agree to the <a>Privacy Policy</a></label>
                         </div>
                         <br />
                         <div className="form-group">
-                            <button type='submit' className="btn" onClick={(e)=>{handleSubmit(e)}}>SignUp</button>
+                            <button type='submit' className="btn" onClick={handleSubmit}>SignUp</button>
                         </div>
                     </form>
                 </div>
