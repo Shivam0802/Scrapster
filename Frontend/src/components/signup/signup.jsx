@@ -65,7 +65,7 @@ function Signup() {
         e.preventDefault();
         // You can add your form submission logic here
         if (formData.type === 'customer') {
-            if (!handleValidation()) {
+            if (handleValidation()) {
                 let conn = new XMLHttpRequest();
                 conn.open("POST", "http://localhost:3000/customer/registerCustomer", true);
                 conn.setRequestHeader("Content-Type", "application/json");
@@ -86,7 +86,7 @@ function Signup() {
                 };
             }
         } else {
-            if (!handleValidation()) {
+            if (handleValidation()) {
                 let conn = new XMLHttpRequest();
                 conn.open("POST", "http://localhost:3000/collectionAgent/registerCollectionAgent", true);
                 conn.setRequestHeader("Content-Type", "application/json");
@@ -242,7 +242,9 @@ function Signup() {
                         </div>
                         <br />
                         <div className="form-group">
-                            <button type='submit' className="btn" onClick={handleSubmit}>SignUp</button>
+                            <button type='submit' className="btn" onClick={(e) => {
+                                handleSubmit(e);
+                            }}>SignUp</button>
                         </div>
                     </form>
                 </div>

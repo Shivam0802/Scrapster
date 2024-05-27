@@ -6,7 +6,7 @@
 
 .navbar{
     display:flex;
-    justify-content:space-between;
+    justify-content:space-around;
     align-items:center;
     background-color:aliceblue;
     padding-top: 15px;
@@ -54,14 +54,53 @@ Link{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+Link:hover{
+    color: rgb(52, 51, 51);
+}
+
+.rightbtn{
+    display: flex;
+    justify-content: space-between;
+    gap : 20px;
+    align-items: center;
+}
+
 .login-btn button {
     font-size: 20px;
-    padding: 10px;
-    width: 100px;
+    padding: 5px; 
+    width: 90px;
     background-color: #98a6ae;
     color: rgb(22, 21, 21);
     border: none;
-    border-radius: 20px;
+    border-radius: 5px;
     box-shadow: #2d2d2d 0 0 10px;
     cursor: pointer;
+}
+
+.login-btn button:hover{
+    background-color: #2d2d2d;
+    color: white;
+}
+
+.profile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile button{
+    font-size: 20px;
+    padding: 5px;
+    width: 90px;
+    background-color: #98a6ae;
+    color: rgb(22, 21, 21);
+    border: none;
+    border-radius: 5px;
+    box-shadow: #2d2d2d 0 0 10px;
+    cursor: pointer;
+}
+
+.profile button:hover{
+    background-color: #2d2d2d;
+    color: white;
 }

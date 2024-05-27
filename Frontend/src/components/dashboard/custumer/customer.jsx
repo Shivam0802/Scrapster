@@ -1,39 +1,78 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+//import { json, useLocation } from 'react-router-dom';
 import Footer from '../../Footer/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import { Link } from 'react-router-dom';
 import TicketGenerationModal from '../Modals/TicketGeneration';
 import './customer.css';
 import { faCheckCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import { data } from 'jquery';
 
 const Custumer = () => {
 
+
+    const [user, setuser] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        contact: "",
+        address: "",
+        city: "",
+        state: "",
+        pincode: ""
+    });
+
     const [showTicketModal, setShowTicketModal] = useState(false);
 
-    if(!localStorage.getItem('token')){
+    if (!localStorage.getItem('token')) {
         window.location.href = '/login';
     }
 
-    const handleDelete = () => {
-        // You can add your delete logic here
-        try {
-            let conn = new XMLHttpRequest();
-            conn.open("DELETE", "http://localhost:3000/customer/deleteCustomer", true);
-            conn.setRequestHeader("Content-Type", "application/json");
-            conn.send();
-            conn.onreadystatechange = function () {
-                if (this.status === 200) {
-                    console.log("Deleted");
-                    window.location.href = "/";
-                } else {
-                    console.log("Error");
-                }
-            };
-        } catch (err) {
-            console.log(err);
-        }
-        console.log("Delete");
-    }
+    // const handleDelete = () => {
+    //     // You can add your delete logic here
+    //     try {
+    //         let conn = new XMLHttpRequest();
+    //         conn.open("DELETE", "http://localhost:3000/customer/deleteCustomer", true);
+    //         conn.setRequestHeader("Content-Type", "application/json");
+    //         conn.send();
+    //         conn.onreadystatechange = function () {
+    //             if (this.status === 200) {
+    //                 console.log("Deleted");
+    //                 window.location.href = "/";
+    //             } else {
+    //                 console.log("Error");
+    //             }
+    //         };
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    //     console.log("Delete");
+    // }
+
+    useEffect(() => {
+        const fetchDetails = async () => {
+            try {
+                let conn = new XMLHttpRequest();
+                conn.open("GET", "http://localhost:3000/customer/getCustomer", true);
+                conn.setRequestHeader("Content-Type", "application/json");
+                conn.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
+                conn.send();
+                conn.onreadystatechange = function () {
+                    if (this.status === 200) {
+                        let data = JSON.parse(this.responseText);
+                        setuser(data);
+                    } else {
+                        console.log("Error");
+                    }
+                };
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchDetails();
+    }, []);
+
 
 
     return (
@@ -57,34 +96,27 @@ const Custumer = () => {
                             <div className='Profile-Details'>
                                 <div className='Profile-Name'>
                                     <div className='Profile-Name-text'>
-                                    <h3>Name:</h3>
-                                    <p>Abhimanyu Singh</p>
-
+                                        <h3>Name:</h3>
+                                        {/* <p>{user.firstName + " " + user.lastName}</p> */}
+                                        {user && <p>{JSON.stringify(user.firstName + " "+ user.lastName)}</p>}
                                     </div>
                                     <div className='Profile-Name-Check'>
-                                    <FontAwesomeIcon className='Font-Check' icon={faCheckCircle} size='lg' />
+                                        <FontAwesomeIcon className='Font-Check' icon={faCheckCircle} size='lg' />
                                     </div>
                                 </div>
                                 <div className='Profile-Email'>
                                     <h3>Email:</h3>
-                                    <p>AbhimanyuSingh@yopmail.com</p>
+                                    <p>{user.email}</p>
                                 </div>
                                 <div className='Profile-Contact'>
                                     <h3>Contact:</h3>
-                                    <p>+91 843-657-9415</p>
-                                </div>
-                                <div className='Profile-Address'>
-                                    <h3>Address:</h3>
-                                    <p>
-                                        D/6, A Wing, Harmas Bldg, Bhatt Lane, Borivli(w),
-                                        Mumbai, Maharashtra, 400092
-                                    </p>
+                                    <p>{user.contact}</p>
                                 </div>
                             </div>
                         </div>
                         <div className='Profile-button'>
                             <button className='btn-Edit'>Edit</button>
-                            <button className='btn-Delete' onClick={handleDelete}>Delete</button>
+                            <button className='btn-Delete'>Delete</button>
                         </div>
                     </div>
                     <div className='Profile-Content'>

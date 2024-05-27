@@ -36,8 +36,13 @@ function Navbar() {
                     <input type='text' placeholder='Search for items to recycle' />
                     <button>Search</button>
                 </div>
+                <div className='rightbtn'>
+                <div className='profile'>
+                    <Link to='/customer'><button>Profile</button></Link>
+                </div>
                 <div className='login-btn'>
-                    {isLoggedIn ? <button onClick={handleLogout}>Logout</button> : <Link to='/login'><button>Login</button></Link>}
+                    {isLoggedIn ? <button onClick={handleLogout} >Logout</button> : <Link to='/login'><button >Login</button></Link>}
+               </div>
                </div>
             </div>
     );

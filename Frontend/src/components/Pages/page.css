@@ -101,22 +101,6 @@
     color: white;
 }
 
-.login-btn button{
-    font-size: 20px;
-    padding: 10px;
-    width: 90px;
-    background-color: #98a6ae;
-    color: rgb(22, 21, 21);
-    border: none;
-    border-radius: 20px;
-    box-shadow: #2d2d2d 0 0 10px;
-    cursor: pointer;
-}
-
-.login-btn button:hover{
-    background-color: #0e2e61;
-    color: white;
-}
 
 .home-content-right{
     display: flex;

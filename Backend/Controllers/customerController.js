@@ -90,7 +90,7 @@ let getCustomer = asyncHandler(async (req, res) => {
     let customer = await Customer.findById(customer_ID);
     if (customer) {
         res.status(200).json({
-            firstName: customer.firstName,
+            firstname: customer.firstName,
             lastName: customer.lastName,
             email: customer.email,
             address: customer.address,
