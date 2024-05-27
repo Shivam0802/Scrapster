@@ -10,7 +10,7 @@ router.post('/loginCustomer', loginCustomer);
 router.post('/registerCustomer', registerCustomer);
 
 //  Route URL for get all customers
-router.get('/getCustomerByemail', customerValidater, getCustomer);
+router.get('/getCustomer', customerValidater, getCustomer);
 
 //  Route URL for update customers
 router.put('/updateCustomer', customerValidater, updateCustomer);

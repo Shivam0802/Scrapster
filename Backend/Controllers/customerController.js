@@ -87,8 +87,10 @@ const registerCustomer = asyncHandler(async (req, res) => {
 // Get /api/customers
 // Private
 let getCustomer = asyncHandler(async (req, res) => {
+    console.log("hello");
     let customer = await Customer.findById(customer_ID);
     if (customer) {
+        console.log(customer);
         res.status(200).json({
             firstname: customer.firstName,
             lastName: customer.lastName,

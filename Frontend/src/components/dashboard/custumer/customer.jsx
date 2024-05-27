@@ -1,26 +1,17 @@
-import React, { useState,useEffect } from 'react';
-//import { json, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Footer from '../../Footer/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import { Link } from 'react-router-dom';
 import TicketGenerationModal from '../Modals/TicketGeneration';
 import './customer.css';
 import { faCheckCircle, faUser } from '@fortawesome/free-solid-svg-icons';
-import { data } from 'jquery';
 
 const Custumer = () => {
 
+    const location = useLocation();
+    const {firstName,lastName,email,contact} = location.state || {};
 
-    const [user, setuser] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        contact: "",
-        address: "",
-        city: "",
-        state: "",
-        pincode: ""
-    });
 
     const [showTicketModal, setShowTicketModal] = useState(false);
 
@@ -49,29 +40,30 @@ const Custumer = () => {
     //     console.log("Delete");
     // }
 
-    useEffect(() => {
-        const fetchDetails = async () => {
-            try {
-                let conn = new XMLHttpRequest();
-                conn.open("GET", "http://localhost:3000/customer/getCustomer", true);
-                conn.setRequestHeader("Content-Type", "application/json");
-                conn.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
-                conn.send();
-                conn.onreadystatechange = function () {
-                    if (this.status === 200) {
-                        let data = JSON.parse(this.responseText);
-                        setuser(data);
-                    } else {
-                        console.log("Error");
-                    }
-                };
-            } catch (err) {
-                console.log(err);
-            }
-        };
+    // useEffect(() => {
+    //     const fetchDetails = async () => {
+    //         try {
+    //             let conn = new XMLHttpRequest();
+    //             conn.open("GET", "http://localhost:3000/customer/getCustomer", true);
+    //             conn.setRequestHeader("Content-Type", "application/json");
+    //             conn.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
+    //             conn.send();
+    //             conn.onreadystatechange = function () {
+    //                 if (this.status === 200) {
+    //                     let data = JSON.parse(this.responseText);
+    //                     console.log(data);
+    //                     setuser(data);
+    //                 } else {
+    //                     console.log("Error");
+    //                 }
+    //             };
+    //         } catch (err) {
+    //             console.log(err);
+    //         }
+    //     };
 
-        fetchDetails();
-    }, []);
+    //     fetchDetails();
+    // }, []);
 
 
 
@@ -98,7 +90,7 @@ const Custumer = () => {
                                     <div className='Profile-Name-text'>
                                         <h3>Name:</h3>
                                         {/* <p>{user.firstName + " " + user.lastName}</p> */}
-                                        {user && <p>{JSON.stringify(user.firstName + " "+ user.lastName)}</p>}
+                                        <p>{firstName ?? "Name"+ " " + (lastName ?? "")}</p>
                                     </div>
                                     <div className='Profile-Name-Check'>
                                         <FontAwesomeIcon className='Font-Check' icon={faCheckCircle} size='lg' />
@@ -106,11 +98,11 @@ const Custumer = () => {
                                 </div>
                                 <div className='Profile-Email'>
                                     <h3>Email:</h3>
-                                    <p>{user.email}</p>
+                                    <p>{email ?? "email"}</p>
                                 </div>
                                 <div className='Profile-Contact'>
                                     <h3>Contact:</h3>
-                                    <p>{user.contact}</p>
+                                    <p>{contact ?? "Phone Number"}</p>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +137,7 @@ const Custumer = () => {
                                 <div className='button-Ticket'>
                                     <button className='btn-Ticket' onClick={() => setShowTicketModal(true)}>Generate Ticket</button>
                                 </div>
-                                {showTicketModal && <TicketGenerationModal closeTicket={setShowTicketModal} />}
+                                {showTicketModal && <TicketGenerationModal closeTicket={() => setShowTicketModal(false)} />}
                             </div>
                             <div className='Profile-right'>
                                 <div className='notification'>
