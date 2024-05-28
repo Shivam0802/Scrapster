@@ -220,7 +220,7 @@ label{
 .btn {
     display: block;
     background: #085c5f;
-    /* border:darkseagreen 3px solid; */
+    border:darkseagreen 3px solid;
     padding: 15px;
     text-transform: uppercase;
     color: #dfd5d5;
@@ -234,8 +234,7 @@ label{
     margin-right: 5px;
 }
 
-.btn:hover {
+/* .btn:hover {
     background: #123e63;
-    /* border:#0c6693 3px solid; */
-    color: #e6dddd;
-}
+    border:#0c6693 3px solid; 
+     color: #e6dddd; }*/

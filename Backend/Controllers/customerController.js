@@ -2,6 +2,7 @@ import asyncHandler from 'express-async-handler';
 import Customer from '../DatabaseModels/customerModel.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import { removeData } from 'jquery';
 
 var customer_ID;
 
@@ -87,7 +88,6 @@ const registerCustomer = asyncHandler(async (req, res) => {
 // Get /api/customers
 // Private
 let getCustomer = asyncHandler(async (req, res) => {
-    console.log("hello");
     let customer = await Customer.findById(customer_ID);
     if (customer) {
         console.log(customer);
@@ -143,9 +143,10 @@ const updateCustomer = asyncHandler(async (req, res) => {
 const deleteCustomer = asyncHandler(async (req, res) => {
     let customer = await Customer.findByIdAndDelete(customer_ID);
     if (customer) {
-        res.json({ message: 'Customer removed' });
-    } else {
-        res.status(404,"Customer not found");
+        res.status(200).json({ message: "Customer deleted" });
+    }
+    else {
+        res.status(404).send("Customer not found");
     }
 });
 

@@ -19,26 +19,27 @@ const Custumer = () => {
         window.location.href = '/login';
     }
 
-    // const handleDelete = () => {
-    //     // You can add your delete logic here
-    //     try {
-    //         let conn = new XMLHttpRequest();
-    //         conn.open("DELETE", "http://localhost:3000/customer/deleteCustomer", true);
-    //         conn.setRequestHeader("Content-Type", "application/json");
-    //         conn.send();
-    //         conn.onreadystatechange = function () {
-    //             if (this.status === 200) {
-    //                 console.log("Deleted");
-    //                 window.location.href = "/";
-    //             } else {
-    //                 console.log("Error");
-    //             }
-    //         };
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    //     console.log("Delete");
-    // }
+    const handleDelete = () => {
+        try{
+            let conn = new XMLHttpRequest();
+            conn.open("DELETE", "http://localhost:3000/customer/deleteCustomer", true);
+            conn.setRequestHeader("Content-Type", "application/json");
+            conn.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
+            conn.send();
+            conn.onreadystatechange = function () {
+                if (this.status === 200) {
+                    console.log("Deleted");
+                    localStorage.removeItem('token');
+                    window.location.href = '/login';
+                } else {
+                    console.log("Error");
+                }
+            };
+        }
+        catch(err){
+            console.log(err);
+        }
+    };
 
     // useEffect(() => {
     //     const fetchDetails = async () => {
@@ -108,7 +109,7 @@ const Custumer = () => {
                         </div>
                         <div className='Profile-button'>
                             <button className='btn-Edit'>Edit</button>
-                            <button className='btn-Delete'>Delete</button>
+                            <button className='btn-Delete' onClick={handleDelete}>Delete</button>
                         </div>
                     </div>
                     <div className='Profile-Content'>
