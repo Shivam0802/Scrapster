@@ -10,9 +10,6 @@ const emailRegex = RegExp(
   /^[a-zA-Z0-9._:$!%-]+@[a-zA-Z]+.[a-zA-Z]/
 );
 
-const passwordRegex = RegExp(
-  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
-);
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -31,7 +28,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!handleValidation()) {
+    if (handleValidation()) {
       // You can add your form submission logic here
       if (formData.type === 'customer') {
         let conn = new XMLHttpRequest();
@@ -87,8 +84,8 @@ function Login() {
       toast.error('Invalid email');
       return false;
     }
-    else if (!passwordRegex.test(formData.password)) {
-      toast.error('Password must contain atleast 8 characters, one uppercase, one lowercase and one number');
+    else if (formData.password.length < 8) {
+      toast.error('Password should be atleast 8 characters long');
       return false;
     }
     return true;

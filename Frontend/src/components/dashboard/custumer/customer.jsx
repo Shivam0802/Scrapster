@@ -25,7 +25,8 @@ const Custumer = () => {
             conn.open("DELETE", "http://localhost:3000/customer/deleteCustomer", true);
             conn.setRequestHeader("Content-Type", "application/json");
             conn.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
-            conn.send();
+            let data = localStorage.getItem('email');
+            conn.send(data);
             conn.onreadystatechange = function () {
                 if (this.status === 200) {
                     console.log("Deleted");
@@ -91,7 +92,7 @@ const Custumer = () => {
                                     <div className='Profile-Name-text'>
                                         <h3>Name:</h3>
                                         {/* <p>{user.firstName + " " + user.lastName}</p> */}
-                                        <p>{firstName ?? "Name"+ " " + (lastName ?? "")}</p>
+                                        <p>Abhimanyu Singh</p>
                                     </div>
                                     <div className='Profile-Name-Check'>
                                         <FontAwesomeIcon className='Font-Check' icon={faCheckCircle} size='lg' />
@@ -99,11 +100,11 @@ const Custumer = () => {
                                 </div>
                                 <div className='Profile-Email'>
                                     <h3>Email:</h3>
-                                    <p>{email ?? "email"}</p>
+                                    <p>abhimanyu_singh@gmail.com</p>
                                 </div>
                                 <div className='Profile-Contact'>
                                     <h3>Contact:</h3>
-                                    <p>{contact ?? "Phone Number"}</p>
+                                    <p>+91 1245673223</p>
                                 </div>
                             </div>
                         </div>

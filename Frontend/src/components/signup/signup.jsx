@@ -146,6 +146,10 @@ function Signup() {
             toast.error('Invalid State');
             return false;
         }
+        else if (formData.password !== formData.repeatpassword) {
+            toast.error('Passwords do not match');
+            return false;
+        }
         return true;
     };
 

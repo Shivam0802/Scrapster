@@ -20,6 +20,7 @@ function Navbar() {
             conn.open("GET","http://localhost:3000/customer/getCustomer",true);
             conn.setRequestHeader("Content-Type","application/json");
             conn.setRequestHeader("Authorization","Bearer "+localStorage.getItem('token'));
+            console.log(localStorage.getItem('token'));
             conn.send();
             conn.onreadystatechange = function(){
                 if(this.status === 200){

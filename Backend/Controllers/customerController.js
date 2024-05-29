@@ -2,7 +2,7 @@ import asyncHandler from 'express-async-handler';
 import Customer from '../DatabaseModels/customerModel.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { removeData } from 'jquery';
+//import { removeData } from 'jquery';
 
 var customer_ID;
 
